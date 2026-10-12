@@ -64,10 +64,10 @@ svg.i.f{fill:currentColor;stroke:none}
 .nav{position:fixed;top:12px;left:50%;transform:translateX(-50%);z-index:1100;width:min(1080px,calc(100% - 24px));
   display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.5rem .55rem .5rem 1.1rem;border-radius:18px}
 .logo{font:800 1.05rem var(--sans);letter-spacing:-.02em;display:flex;align-items:center;gap:.55rem}
-.logo .mk{width:32px;height:32px;border-radius:10px;background:linear-gradient(135deg,#00d4ff 0%,#1d6bff 50%,#7b2ff7 100%);background-size:200% 200%;display:grid;place-items:center;color:#fff;font:800 .82rem var(--sans);letter-spacing:.5px;box-shadow:0 0 20px rgba(29,107,255,.8),0 6px 16px -4px rgba(29,107,255,.7),inset 0 1px 0 rgba(255,255,255,.7),inset 0 -2px 4px rgba(0,0,0,.2);animation:mkNano 3s ease-in-out infinite;position:relative;overflow:hidden}
-.logo .mk::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,transparent,rgba(255,255,255,.6),transparent);transform:translateX(-100%);animation:mkShine 2.5s ease-in-out infinite}
-@keyframes mkNano{0%,100%{background-position:0% 50%;transform:scale(1)}50%{background-position:100% 50%;transform:scale(1.05)}}
-@keyframes mkShine{0%{transform:translateX(-100%)}60%,100%{transform:translateX(100%)}}
+.logo .mkp{width:34px;height:34px;border-radius:10px;box-shadow:0 0 18px rgba(29,107,255,.7);background:rgba(10,20,40,.35)}
+
+50%{background-position:100% 50%;transform:scale(1.05)}}
+60%,100%{transform:translateX(100%)}}
 .links{display:flex;gap:.1rem}
 .links a{font-size:.84rem;font-weight:600;color:var(--muted);padding:.45rem .8rem;border-radius:11px;transition:.2s}
 .links a:hover,.links a.on{color:var(--blue);background:rgba(29,107,255,.09)}
@@ -309,7 +309,7 @@ footer strong{color:var(--ink)}
 </svg>
 
 <nav class="nav glass" id="nav">
-  <a class="logo" href="#inicio"><span class="mk">JC</span>Castillo</a>
+  <a class="logo" href="#inicio"><canvas class="mkp" id="mkp" width="64" height="64" aria-label="JC"></canvas></a>
   <div class="links">
     <a href="#stack" data-i18n="nav2">Tecnología</a>
     <a href="#agentes" data-i18n="navAg">IA</a>
@@ -602,6 +602,40 @@ let tid=0;async function termRun(){const id=++tid,tb=$("#tm");tb.innerHTML="";co
   for(const [c,o] of T[L].term){if(id!==tid)return;const row=document.createElement("div");row.innerHTML="<b>$ </b><span></span>";tb.appendChild(row);const sp=row.lastChild;
     for(const ch of c){if(id!==tid)return;sp.textContent+=ch;if(!REDUCED)await sl(35)}
     const out=document.createElement("div");out.textContent=o;tb.appendChild(out);if(!REDUCED)await sl(350)}}
+
+
+/* logo JC partículas */
+(function(){const cv=document.getElementById("mkp");if(!cv)return;const ctx=cv.getContext("2d"),W=64,H=64;
+// Puntos objetivo formando "JC"
+const off=document.createElement("canvas");off.width=W;off.height=H;const octx=off.getContext("2d");
+octx.font="800 30px sans-serif";octx.textAlign="center";octx.textBaseline="middle";octx.fillStyle="#fff";
+octx.fillText("JC",W/2,H/2+1);
+const data=octx.getImageData(0,0,W,H).data,targets=[];
+for(let y=0;y<H;y+=3)for(let x=0;x<W;x+=3){if(data[(y*W+x)*4+3]>128)targets.push({x,y});}
+const N=Math.min(targets.length,90),ps=[];
+for(let i=0;i<N;i++){const t=targets[i%targets.length];ps.push({x:Math.random()*W,y:Math.random()*H,tx:t.x,ty:t.y,vx:0,vy:0,mode:0});}
+let phase=0,timer=0;
+function tick(){
+  timer++;
+  if(timer>140){timer=0;phase=(phase+1)%2;} // alternar: formar / dispersar
+  ctx.clearRect(0,0,W,H);
+  for(const p of ps){
+    let gx,gy;
+    if(phase===0){gx=p.tx;gy=p.ty;} // converger a JC
+    else{gx=W/2+Math.cos(timer*.05+p.tx)*22;gy=H/2+Math.sin(timer*.05+p.ty)*22;} // orbitar
+    p.vx+=(gx-p.x)*.02;p.vy+=(gy-p.y)*.02;p.vx*=.9;p.vy*=.9;
+    p.x+=p.vx;p.y+=p.vy;
+    const d=Math.hypot(p.tx-p.x,p.ty-p.y);
+    ctx.fillStyle=`rgba(80,180,255,${Math.max(.3,1-d/40)})`;
+    ctx.beginPath();ctx.arc(p.x,p.y,1.6,0,7);ctx.fill();
+  }
+  // brillo central
+  const g=ctx.createRadialGradient(W/2,H/2,2,W/2,H/2,30);
+  g.addColorStop(0,"rgba(29,107,255,.25)");g.addColorStop(1,"transparent");
+  ctx.fillStyle=g;ctx.fillRect(0,0,W,H);
+  requestAnimationFrame(tick);
+}
+tick();})();
 
 /* week strip */
 function renderWeek(){const w=$("#week");w.innerHTML="";const n=new Date(),names=L==="es"?["L","M","X","J","V","S","D"]:["M","T","W","T","F","S","S"];
