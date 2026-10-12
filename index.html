@@ -64,7 +64,7 @@ svg.i.f{fill:currentColor;stroke:none}
 .nav{position:fixed;top:12px;left:50%;transform:translateX(-50%);z-index:1100;width:min(1080px,calc(100% - 24px));
   display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.5rem .55rem .5rem 1.1rem;border-radius:18px}
 .logo{font:800 1.05rem var(--sans);letter-spacing:-.02em;display:flex;align-items:center;gap:.55rem}
-.logo .mkp{width:34px;height:34px;border-radius:10px;box-shadow:0 0 18px rgba(29,107,255,.7);background:rgba(10,20,40,.35)}
+.logo .mk{width:34px;height:34px;border-radius:10px;background:linear-gradient(135deg,#00d4ff,#1d6bff,#7b2ff7);background-size:200% 200%;display:grid;place-items:center;color:#fff;font:800 .85rem var(--sans);box-shadow:0 0 22px rgba(29,107,255,.9),inset 0 1px 0 rgba(255,255,255,.7);animation:mkGlow 2.5s ease-in-out infinite;position:relative;overflow:hidden}.logo .mk::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,transparent,rgba(255,255,255,.5),transparent);animation:mkSweep 2s linear infinite}@keyframes mkGlow{0%,100%{background-position:0% 50%;box-shadow:0 0 18px rgba(29,107,255,.7)}50%{background-position:100% 50%;box-shadow:0 0 32px rgba(29,107,255,1)}}@keyframes mkSweep{0%{transform:translateX(-100%)}100%{transform:translateX(100%)}}
 
 50%{background-position:100% 50%;transform:scale(1.05)}}
 60%,100%{transform:translateX(100%)}}
@@ -309,7 +309,7 @@ footer strong{color:var(--ink)}
 </svg>
 
 <nav class="nav glass" id="nav">
-  <a class="logo" href="#inicio"><canvas class="mkp" id="mkp" width="64" height="64" aria-label="JC"></canvas></a>
+  <a class="logo" href="#inicio"><span class="mk">JC</span></a>
   <div class="links">
     <a href="#stack" data-i18n="nav2">Tecnología</a>
     <a href="#agentes" data-i18n="navAg">IA</a>
