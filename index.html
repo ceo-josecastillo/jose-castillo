@@ -290,6 +290,24 @@ footer strong{color:var(--ink)}
 }
 @media(hover:none){.glow{display:none}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}html{scroll-behavior:auto}}
+
+.agents-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:1rem;margin-top:1.5rem}
+.agent-card{text-align:center;padding:1.5rem 1rem;border-radius:18px;transition:transform .3s,box-shadow .3s;cursor:pointer}
+.agent-card:hover{transform:translateY(-6px) scale(1.03);box-shadow:0 20px 40px -12px rgba(29,107,255,.4),0 0 30px rgba(29,107,255,.2)}
+.agent-icon{font-size:2.2rem;margin-bottom:.6rem;filter:drop-shadow(0 4px 8px rgba(29,107,255,.3))}
+.agent-card h3{font:800 1.1rem var(--sans);color:var(--ink);margin-bottom:.3rem;letter-spacing:1px}
+.agent-card p{font:.85rem var(--sans);color:var(--muted)}
+
+
+/* Misión, Visión, Valores - títulos centrados y alineación perfecta */
+#mision .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.2rem;align-items:stretch}
+#mision .glass .pad{display:flex;flex-direction:column;height:100%}
+#mision .glass h3{text-align:center;font:800 1.15rem var(--sans);color:var(--ink);margin-bottom:1rem;padding-bottom:.8rem;border-bottom:2px solid rgba(29,107,255,.15);letter-spacing:.5px}
+#mision .glass p,#mision .glass ul{text-align:left;flex:1}
+#mision .glass ul{list-style:none;padding:0;margin:.5rem 0 0}
+#mision .glass ul li{padding:.4rem 0 .4rem 1.2rem;position:relative;font-size:.92rem}
+#mision .glass ul li::before{content:"";position:absolute;left:0;top:.85rem;width:7px;height:7px;border-radius:50%;background:var(--blue);box-shadow:0 0 8px rgba(29,107,255,.6)}
+
 </style>
 </head>
 <body>
@@ -384,8 +402,13 @@ footer strong{color:var(--ink)}
   <p class="tag reveal">agents</p>
   <h2 class="h2 reveal" data-i18n="agT">División de Inteligencia Artificial</h2>
   <p class="lead reveal" data-i18n="agP"></p>
-  <div class="orch reveal" id="orch"></div>
-  <div class="glass adetail reveal" id="adet"></div>
+  <div class="agents-grid reveal">
+    <div class="agent-card glass hov"><div class="agent-icon">🎯</div><h3>STRAT</h3><p data-i18n="agD1">Estrategia</p></div>
+    <div class="agent-card glass hov"><div class="agent-icon">⚙️</div><h3>CTO</h3><p data-i18n="agD2">Tecnología</p></div>
+    <div class="agent-card glass hov"><div class="agent-icon">📢</div><h3>CMO</h3><p data-i18n="agD3">Marketing</p></div>
+    <div class="agent-card glass hov"><div class="agent-icon">💰</div><h3>CFO</h3><p data-i18n="agD4">Finanzas</p></div>
+    <div class="agent-card glass hov"><div class="agent-icon">🔧</div><h3>COO</h3><p data-i18n="agD5">Operaciones</p></div>
+  </div>
 </div></section>
 
 <section id="mision"><div class="wrap">
@@ -539,7 +562,7 @@ s1t:"Visión de liderazgo",s1p:"Parte de una convicción: la tecnología más av
 s2t:"Líneas estratégicas",s2i1:"Inteligencia artificial aplicada a la empresa",s2i2:"Automatización de procesos y operaciones",s2i3:"Educación tecnológica y noticias del sector",s2i4:"Infraestructura de nivel empresarial",
 qst:"Quién soy",qsp1:"José Enrique Castillo.",qsp2:"Su trayectoria combina logística y tecnología: como dueño y gerente de GlobalTrackExpress.com — envíos, mensajería, rutas corporativas, rastreo GPS y venta de equipos — lidera el desarrollo de una plataforma tecnológica abierta, transparente y sin secretos.",
 stackT:"Stack tecnológico",stackP:"Tecnologías de nivel empresarial. Selecciona cada una para visitar su sitio oficial.",sphT:"Esfera tecnológica 3D",sphP:"Cada nodo es una tecnología del stack. Pasa el cursor sobre un nodo para ver su nombre; tócalo para visitar su sitio oficial.",
-agT:"División de Inteligencia Artificial",agP:"Inteligencia artificial aplicada a tu negocio: estrategia, tecnología, marketing, finanzas y operaciones trabajando para ti.",
+agT:"División de Inteligencia Artificial",agP:"Inteligencia artificial aplicada a tu negocio: estrategia, tecnología, marketing, finanzas y operaciones trabajando para ti.",agD1:"Estrategia",agD2:"Tecnología",agD3:"Marketing",agD4:"Finanzas",agD5:"Operaciones",
 ag:{STRAT:["Estrategia","Define la estrategia y coordina al equipo de agentes: objetivos, prioridades y decisiones clave."],CTO:["Tecnología","Supervisa la infraestructura, el código y las integraciones: sistemas estables y seguros."],CMO:["Marketing","Planifica contenidos y comunicación, con aprobación previa: mensaje claro y constante."],CFO:["Finanzas","Controla los costos y los ingresos del proyecto: números claros, cero desperdicio."],COO:["Operaciones","Organiza los procesos y la ejecución diaria: todo en orden y a tiempo."]},
 agCore:"JC",
 mvT:"Misión · Visión · Valores",mst:"Misión",vst:"Visión",valt:"Valores",
@@ -554,7 +577,7 @@ svt:"Servicios empresariales",svp:"Servicios profesionales para empresas. Contá
 calT:"Agenda una reunión",calP:"Selecciona día y hora. La solicitud se envía por WhatsApp para su confirmación. También puedes añadirla a tu calendario.",calSlots:"Horarios disponibles (UTC−5)",calWA:"Confirmar por WhatsApp",calG:"Añadir a Google Calendar",calICS:"Descargar .ics",calNone:"Selecciona una fecha y un horario.",
 aiT:"Asistente virtual",aiP:"Asistente virtual con IA: le orienta sobre servicios, agenda, precios, proyectos, tecnología, donativos y contacto. Para temas específicos, José Castillo responde personalmente.",chatph:"Escribe tu mensaje…",
 s3p:"¿Buscas llevar tu empresa al siguiente nivel con IA y automatización? Conversemos.",s3cta:"WhatsApp",
-s5t:"Apoya a José Castillo",s5p:"Tu contribución acelera el ecosistema digital, la inteligencia artificial y la innovación.",s5ct:"Cripto",s5cn:"Direcciones oficiales próximamente.",
+s5t:"Donaciones para desarrolladores",s5p:"Tu contribución acelera el ecosistema digital, la inteligencia artificial y la innovación.",s5ct:"Cripto",s5cn:"Direcciones oficiales próximamente.",
 s6t:"Contacto",f1:"Nombre",f2:"Correo",f3:"Mensaje",f4:"Enviar mensaje",f5:"Respuesta en 24–48 horas.",
 arsT:"Seguridad",arsP:"Capacidades de seguridad defensiva.",arsD1:"Inteligencia de fuentes abiertas sobre activos propios.",arsD2:"Monitoreo de cambios en sitios web propios.",arsD3:"TLS automático y proxy inverso.",arsD4:"Túnel seguro sin exposición de puertos.",arsD5:"Paneles de monitoreo y observabilidad.",arsD6:"SIEM documentado para la fase 6 de la plataforma.",arsN:"Enfoque defensivo: monitoreo, detección y fortalecimiento continuo.",
 lic:"© 2026 José Castillo",
@@ -586,7 +609,7 @@ svt:"Business services",svp:"Professional services for businesses. Contact us on
 calT:"Book a meeting",calP:"Select a day and time. The request is sent via WhatsApp for confirmation. You can also add it to your calendar.",calSlots:"Available times (UTC−5)",calWA:"Confirm via WhatsApp",calG:"Add to Google Calendar",calICS:"Download .ics",calNone:"Select a date and a time.",
 aiT:"Virtual assistant",aiP:"AI virtual assistant: guidance on services, scheduling, pricing, projects, technology, donations, and contact. For specific matters, José Castillo replies personally.",chatph:"Type your message…",
 s3p:"Looking to take your company to the next level with AI and automation? Let's talk.",s3cta:"WhatsApp",
-s5t:"Support José Castillo",s5p:"Your contribution accelerates the digital ecosystem, artificial intelligence, and innovation.",s5ct:"Crypto",s5cn:"Official addresses coming soon.",
+s5t:"Donations for developers",s5p:"Your contribution accelerates the digital ecosystem, artificial intelligence, and innovation.",s5ct:"Crypto",s5cn:"Official addresses coming soon.",
 s6t:"Contact",f1:"Name",f2:"Email",f3:"Message",f4:"Send message",f5:"Reply within 24–48 hours.",
 arsT:"Security",arsP:"Defensive security capabilities.",arsD1:"Open-source intelligence on owned assets.",arsD2:"Change monitoring for owned websites.",arsD3:"Automatic TLS and reverse proxy.",arsD4:"Secure tunnel with no exposed ports.",arsD5:"Monitoring dashboards and observability.",arsD6:"SIEM documented for platform phase 6.",arsN:"Defensive approach: continuous monitoring, detection, and hardening.",
 lic:"© 2026 José Castillo",
