@@ -165,6 +165,16 @@ h1{font-size:clamp(2.7rem,6.6vw,5rem);font-weight:800;letter-spacing:-.045em;lin
 .tech img,.tech .lg{width:26px;height:26px}
 .tech:hover{transform:translateY(-4px) scale(1.04);box-shadow:0 20px 40px -14px rgba(29,107,255,.65),0 0 0 1px rgba(29,107,255,.3)}
 .brands{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:.9rem;margin-top:2rem}
+/* 3D tech sphere */
+.sphere-card{margin-top:2.2rem}
+.sphere-card .pad{padding-bottom:.5rem}
+.sphere-card h3{font-size:1.3rem;margin:0 0 .45rem}
+.sph-sub{margin:0;color:var(--muted);font-size:.93rem}
+.sphere-wrap{position:relative;height:440px}
+.sphere-wrap canvas{position:absolute;inset:0;width:100%;height:100%;display:block;cursor:grab;touch-action:pan-y}
+.sphere-tip{position:absolute;left:0;top:0;pointer-events:none;opacity:0;transform:translate(-50%,-150%) scale(.92);transition:opacity .18s ease,transform .18s ease;background:rgba(8,22,46,.94);border:1px solid rgba(56,189,248,.55);color:#eaf6ff;font:600 .82rem var(--sans);padding:.45rem .85rem;border-radius:12px;white-space:nowrap;box-shadow:0 10px 28px -8px rgba(29,107,255,.7),inset 0 1px 0 rgba(255,255,255,.15);z-index:6}
+.sphere-tip.on{opacity:1;transform:translate(-50%,-150%) scale(1)}
+@media(max-width:700px){.sphere-wrap{height:340px}}
 .brand{--mx:50%;--my:50%;position:relative;display:flex;flex-direction:column;align-items:center;gap:.7rem;padding:1.3rem .6rem;border-radius:20px;font:700 .8rem var(--sans);text-align:center;overflow:hidden;
   background:linear-gradient(145deg,rgba(255,255,255,.85),rgba(255,255,255,.45));border:1px solid var(--edge);box-shadow:0 12px 30px -16px rgba(29,107,255,.5),inset 0 1px 0 #fff;transition:.35s var(--ease)}
 .brand::before{content:"";position:absolute;inset:0;opacity:0;transition:.3s;background:radial-gradient(150px circle at var(--mx) var(--my),rgba(56,189,248,.35),transparent 70%)}
@@ -337,8 +347,6 @@ footer strong{color:var(--ink)}
     </div>
   </div>
   <div class="stage" id="vis">
-    <div class="fc c2 glass"><h4><svg class="i"><use href="#i-spark"/></svg><span data-i18n="agT2">Agentes de inteligencia artificial</span></h4><div class="chips"><span class="chip">STRAT</span><span class="chip">CTO</span><span class="chip">CMO</span><span class="chip">CFO</span><span class="chip">COO</span></div></div>
-    <a class="fc c3 glass" href="#agenda"><h4><svg class="i"><use href="#i-cal"/></svg><span data-i18n="navCal">Agenda</span></h4><div class="week" id="week"></div><span class="btn sm" style="width:100%" data-i18n="heroCal">Agendar reunión</span></a>
   </div>
 </div></header>
 
@@ -360,6 +368,16 @@ footer strong{color:var(--ink)}
 </div>
   <div class="marq reveal" id="marq"></div>
   <div class="wrap"><div class="brands" id="brands"></div></div>
+  <div class="wrap"><div class="glass sphere-card reveal">
+    <div class="pad">
+      <h3 data-i18n="sphT">Esfera tecnológica 3D</h3>
+      <p class="sph-sub" data-i18n="sphP">Cada nodo es una tecnología del stack. Pasa el cursor sobre un nodo para ver su nombre.</p>
+    </div>
+    <div class="sphere-wrap" id="sphWrap">
+      <canvas id="sph" role="img" aria-label="Esfera 3D interactiva de tecnologías"></canvas>
+      <div class="sphere-tip" id="sphTip"></div>
+    </div>
+  </div></div>
 </section>
 
 <section id="agentes"><div class="wrap">
@@ -520,7 +538,7 @@ aboutLead:"Tecnología, estrategia y educación para empresas que quieren crecer
 s1t:"Visión de liderazgo",s1p:"Parte de una convicción: la tecnología más avanzada debe estar al alcance de todos. José Castillo construye sistemas de inteligencia artificial, automatización e infraestructura — de adentro hacia afuera: desde los valores hacia el mundo.",
 s2t:"Líneas estratégicas",s2i1:"Inteligencia artificial aplicada a la empresa",s2i2:"Automatización de procesos y operaciones",s2i3:"Educación tecnológica y noticias del sector",s2i4:"Infraestructura de nivel empresarial",
 qst:"Quién soy",qsp1:"José Enrique Castillo.",qsp2:"Su trayectoria combina logística y tecnología: como dueño y gerente de GlobalTrackExpress.com — envíos, mensajería, rutas corporativas, rastreo GPS y venta de equipos — lidera el desarrollo de una plataforma tecnológica abierta, transparente y sin secretos.",
-stackT:"Stack tecnológico",stackP:"Tecnologías de nivel empresarial. Selecciona cada una para visitar su sitio oficial.",
+stackT:"Stack tecnológico",stackP:"Tecnologías de nivel empresarial. Selecciona cada una para visitar su sitio oficial.",sphT:"Esfera tecnológica 3D",sphP:"Cada nodo es una tecnología del stack. Pasa el cursor sobre un nodo para ver su nombre; tócalo para visitar su sitio oficial.",
 agT:"División de Inteligencia Artificial",agP:"Inteligencia artificial aplicada a tu negocio: estrategia, tecnología, marketing, finanzas y operaciones trabajando para ti.",
 ag:{STRAT:["Estrategia","Define la estrategia y coordina al equipo de agentes: objetivos, prioridades y decisiones clave."],CTO:["Tecnología","Supervisa la infraestructura, el código y las integraciones: sistemas estables y seguros."],CMO:["Marketing","Planifica contenidos y comunicación, con aprobación previa: mensaje claro y constante."],CFO:["Finanzas","Controla los costos y los ingresos del proyecto: números claros, cero desperdicio."],COO:["Operaciones","Organiza los procesos y la ejecución diaria: todo en orden y a tiempo."]},
 agCore:"JC",
@@ -552,7 +570,7 @@ aboutLead:"Technology, strategy, and education for companies ready to grow.",
 s1t:"Leadership vision",s1p:"Built on a conviction: the most advanced technology should be within everyone's reach. José Castillo builds artificial intelligence systems, automation, and infrastructure — inside out: from values to the world.",
 s2t:"Strategic lines",s2i1:"Artificial intelligence applied to business",s2i2:"Process and operations automation",s2i3:"Technology education and industry news",s2i4:"Enterprise-grade infrastructure",
 qst:"About me",qsp1:"José Enrique Castillo.",qsp2:"His background combines logistics and technology: as owner and manager of GlobalTrackExpress.com — shipping, courier services, corporate routes, GPS tracking, and equipment — he leads the development of an open, transparent technology platform with no secrets.",
-stackT:"Technology stack",stackP:"Enterprise-grade technologies. Select each one to visit its official site.",
+stackT:"Technology stack",stackP:"Enterprise-grade technologies. Select each one to visit its official site.",sphT:"3D technology sphere",sphP:"Each node is a stack technology. Hover a node to see its name; tap it to visit its official site.",
 agT:"Artificial Intelligence Division",agP:"Five specialized agents: strategy, technology, marketing, finance, and operations.",
 ag:{STRAT:["Strategy","Defines strategy and coordinates the agent team: goals, priorities, and key decisions."],CTO:["Technology","Oversees infrastructure, code, and integrations: stable and secure systems."],CMO:["Marketing","Plans content and communications, with prior approval: clear and consistent messaging."],CFO:["Finance","Controls project costs and revenue: clear numbers, zero waste."],COO:["Operations","Organizes processes and daily execution: everything in order and on time."]},
 agCore:"JC",
@@ -586,7 +604,7 @@ function setLang(l){
   $$("[data-i18n]").forEach(e=>{const v=T[l][e.dataset.i18n];if(typeof v==="string")e.textContent=v});
   $("#ct").placeholder=T[l].chatph;
   document.title="José Castillo";
-  renderQuick();roleStart();renderCal();renderAgents();renderWeek();buildBots();
+  renderQuick();roleStart();renderCal();renderAgents();buildBots();
 }
 
 /* role typewriter */
@@ -600,17 +618,139 @@ let rt;function roleStart(){clearTimeout(rt);const el=$("#tw"),r=T[L].roles;let 
 /* logo JC partículas */
 
 
-/* week strip */
-function renderWeek(){const w=$("#week");w.innerHTML="";const n=new Date(),names=L==="es"?["L","M","X","J","V","S","D"]:["M","T","W","T","F","S","S"];
-  const mon=new Date(n);mon.setDate(n.getDate()-((n.getDay()+6)%7));
-  for(let i=0;i<7;i++){const d=new Date(mon);d.setDate(mon.getDate()+i);const e=document.createElement("div");if(d.toDateString()===n.toDateString())e.className="today";e.innerHTML=names[i]+"<b>"+d.getDate()+"</b>";w.appendChild(e)}}
-
 /* logos */
 const techs=[["Python","python","3776AB","https://www.python.org"],["Docker","docker","2496ED","https://www.docker.com"],["Debian","debian","A81D33","https://www.debian.org"],["n8n","n8n","EA4B71","https://n8n.io"],["Ollama","ollama","1e293b","https://ollama.com"],["PostgreSQL","postgresql","4169E1","https://www.postgresql.org"],["Git","git","F05032","https://git-scm.com"],["Qdrant","qdrant","DC244C","https://qdrant.tech"],["Home Assistant","homeassistant","18BCF2","https://www.home-assistant.io"],["Grafana","grafana","F46800","https://grafana.com"],["Caddy","caddy","1F88C0","https://caddyserver.com"],["Cloudflare","cloudflare","F38020","https://www.cloudflare.com"],["LangChain","langchain","1C3C3C","https://www.langchain.com"],["GitHub","github","181717","https://github.com"],["Linux","linux","FCC624","https://www.kernel.org"],["Google Calendar","googlecalendar","4285F4","https://calendar.google.com"]];
 const lg=(s,h,n)=>`<img loading="lazy" alt="" src="https://cdn.simpleicons.org/${s}/${h}" onerror="fb(this,'${n[0]}')">`;
 const rowH=a=>a.map(([n,s,h,u])=>`<a class="tech" href="${u}" target="_blank" rel="noopener" title="${n}">${lg(s,h,n)}${n}</a>`).join("");
 $("#marq").innerHTML=`<div class="mt">${rowH(techs)}${rowH(techs)}</div><div class="mt rev">${rowH([...techs].reverse())}${rowH([...techs].reverse())}</div>`;
 $("#brands").innerHTML=techs.slice(0,12).map(([n,s,h,u])=>`<a class="brand" href="${u}" target="_blank" rel="noopener" title="${n}">${lg(s,h,n)}<span>${n}</span></a>`).join("");
+
+/* ================= SPHERE 3D =================
+   Interactive 3D technology sphere: Fibonacci-distributed nodes (one per
+   stack technology), neighbor edges, auto-rotation, drag spin with inertia,
+   cursor tilt, hover tooltips. Pure canvas 2D perspective projection. */
+(function(){
+  const cv=$("#sph"),wrap=$("#sphWrap"),tip=$("#sphTip");
+  if(!cv||!wrap||!tip)return;
+  const ctx=cv.getContext("2d");
+  const PAL=["#38bdf8","#1d6bff","#06b6d4","#5b6cff","#7dd3fc","#0ea5e9"];
+  const N=techs.length,nodes=[];
+  for(let i=0;i<N;i++){
+    const y=1-(i/(N-1))*2,r=Math.sqrt(Math.max(0,1-y*y)),ph=i*2.399963;
+    nodes.push({name:techs[i][0],url:techs[i][3],x:Math.cos(ph)*r,y:y,z:Math.sin(ph)*r,c:PAL[i%PAL.length],sx:0,sy:0,sc:1,dep:0});
+  }
+  const edges=[];
+  for(let i=0;i<N;i++)for(let j=i+1;j<N;j++){
+    const a=nodes[i],b=nodes[j];
+    if(Math.hypot(a.x-b.x,a.y-b.y,a.z-b.z)<0.92)edges.push([i,j]);
+  }
+  const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
+  const F=3.4,SPIN=0.004;
+  let W=0,H=0,R=0,cx=0,cy=0;
+  let rx=-0.32,ry=0.7,trx=-0.32,try_=0.7,vx=0,vy=0;
+  let drag=false,px=0,py=0,moved=0,lastAct=0,tiltX=0,tiltY=0;
+  let hov=null,vis=true,pType="mouse",tapNode=null,tapT=0,tapTO=0;
+  function size(){
+    const d=Math.min(devicePixelRatio||1,2),r=wrap.getBoundingClientRect();
+    W=Math.max(280,r.width);H=Math.max(300,r.height);
+    cv.width=W*d;cv.height=H*d;ctx.setTransform(d,0,0,d,0,0);
+    cx=W/2;cy=H/2;R=Math.min(W,H)*0.36;
+  }
+  function project(){
+    const cX=Math.cos(rx),sX=Math.sin(rx),cY=Math.cos(ry),sY=Math.sin(ry);
+    for(const n of nodes){
+      const y1=n.y*cX-n.z*sX,z1=n.y*sX+n.z*cX;
+      const x2=n.x*cY+z1*sY,z2=-n.x*sY+z1*cY;
+      const s=F/(F+z2);
+      n.sx=cx+x2*R*s;n.sy=cy+y1*R*s;n.sc=s;n.dep=(z2+1)/2;
+    }
+  }
+  function draw(){
+    ctx.clearRect(0,0,W,H);
+    ctx.lineWidth=1;
+    for(const e of edges){
+      const a=nodes[e[0]],b=nodes[e[1]],d=(a.dep+b.dep)/2;
+      ctx.strokeStyle="rgba(56,189,248,"+(0.05+0.3*d).toFixed(3)+")";
+      ctx.beginPath();ctx.moveTo(a.sx,a.sy);ctx.lineTo(b.sx,b.sy);ctx.stroke();
+    }
+    const ord=nodes.slice().sort((a,b)=>a.dep-b.dep);
+    for(const n of ord){
+      const r=Math.max(2.2,5.4*n.sc),al=0.35+0.65*n.dep;
+      ctx.save();ctx.globalAlpha=al;
+      ctx.shadowColor=n.c;ctx.shadowBlur=16*n.sc;
+      ctx.fillStyle=n.c;ctx.beginPath();ctx.arc(n.sx,n.sy,r,0,7);ctx.fill();
+      ctx.restore();
+      ctx.fillStyle="rgba(255,255,255,"+(0.5*al).toFixed(3)+")";
+      ctx.beginPath();ctx.arc(n.sx-r*0.32,n.sy-r*0.32,Math.max(0.8,r*0.34),0,7);ctx.fill();
+      if(n===hov){
+        ctx.strokeStyle="rgba(255,255,255,.95)";ctx.lineWidth=1.6;
+        ctx.beginPath();ctx.arc(n.sx,n.sy,r+4.5,0,7);ctx.stroke();
+      }
+    }
+  }
+  function pick(mx,my){
+    let best=null,bd=1e9;
+    for(const n of nodes){
+      const hr=Math.max(17,7.5*n.sc),d=Math.hypot(n.sx-mx,n.sy-my);
+      if(d<hr&&d<bd){bd=d;best=n;}
+    }
+    return best;
+  }
+  function showTip(n){hov=n;tip.textContent=n.name;tip.style.left=n.sx+"px";tip.style.top=n.sy+"px";tip.classList.add("on");}
+  function hideTip(){hov=null;tip.classList.remove("on");}
+  cv.addEventListener("pointerdown",e=>{
+    pType=e.pointerType;drag=true;px=e.clientX;py=e.clientY;moved=0;vx=vy=0;
+    try{cv.setPointerCapture(e.pointerId)}catch(_){}
+    lastAct=performance.now();hideTip();cv.style.cursor="grabbing";
+  });
+  cv.addEventListener("pointermove",e=>{
+    const r=cv.getBoundingClientRect(),mx=e.clientX-r.left,my=e.clientY-r.top;
+    tiltX=((my/r.height)-0.5)*0.8;
+    tiltY=((mx/r.width)-0.5)*0.8;
+    if(drag){
+      const dx=e.clientX-px,dy=e.clientY-py;px=e.clientX;py=e.clientY;
+      moved+=Math.abs(dx)+Math.abs(dy);
+      vx=dx*0.0055;vy=dy*0.0055;
+      ry+=vx;rx=clamp(rx+vy,-1.25,1.25);trx=rx;try_=ry;
+      lastAct=performance.now();
+    }else if(e.pointerType!=="touch"){
+      if(REDUCED)project();
+      const n=pick(mx,my);
+      if(n){showTip(n);cv.style.cursor="pointer";}
+      else{hideTip();cv.style.cursor="grab";}
+    }
+  });
+  const endD=()=>{if(drag){drag=false;lastAct=performance.now();cv.style.cursor="grab";}};
+  cv.addEventListener("pointerup",endD);
+  cv.addEventListener("pointercancel",endD);
+  cv.addEventListener("pointerleave",()=>{tiltX=0;tiltY=0;hideTip();});
+  cv.addEventListener("click",e=>{
+    if(moved>10)return;
+    const r=cv.getBoundingClientRect(),n=pick(e.clientX-r.left,e.clientY-r.top);
+    if(!n||!n.url||n.url==="#")return;
+    if(pType==="touch"){
+      const now=performance.now();
+      if(tapNode===n&&now-tapT<4000){window.open(n.url,"_blank","noopener");tapNode=null;hideTip();}
+      else{showTip(n);tapNode=n;tapT=now;clearTimeout(tapTO);tapTO=setTimeout(()=>{hideTip();tapNode=null;},4000);}
+    }else{window.open(n.url,"_blank","noopener");}
+  });
+  new IntersectionObserver(es=>{vis=es[0].isIntersecting;},{threshold:0.05}).observe(wrap);
+  addEventListener("resize",()=>{size();if(REDUCED){project();draw();}});
+  size();project();
+  if(REDUCED){draw();}
+  else{(function tick(now){
+    requestAnimationFrame(tick);
+    if(document.hidden||!vis)return;
+    if(!drag){
+      ry+=vx;rx=clamp(rx+vy,-1.25,1.25);vx*=0.94;vy*=0.94;
+      if(now-lastAct>2500){try_+=SPIN;trx=rx;}
+      ry+=(try_+tiltY-ry)*0.07;
+      rx+=(trx+tiltX*0.45-rx)*0.07;
+    }
+    project();draw();
+    if(hov&&!drag&&pType!=="touch")showTip(hov);
+  })(performance.now());}
+})();
 
 /* agents orchestra */
 let curAg="STRAT",agAuto=null,agTouch=false;
