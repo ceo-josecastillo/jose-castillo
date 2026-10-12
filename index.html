@@ -175,22 +175,6 @@ h1{font-size:clamp(2.7rem,6.6vw,5rem);font-weight:800;letter-spacing:-.045em;lin
 .brand:hover{transform:translateY(-6px);box-shadow:0 26px 46px -16px rgba(29,107,255,.7),0 0 0 1px rgba(29,107,255,.3)}
 .brand:hover::before{opacity:1}.brand:hover img{transform:scale(1.18) rotate(-6deg);filter:drop-shadow(0 8px 12px rgba(29,107,255,.4))}
 
-/* ---------- agents orchestra ---------- */
-.orch{position:relative;height:430px;max-width:900px;margin:0 auto}
-.orch svg{position:absolute;inset:0;width:100%;height:100%}
-.orch line{stroke:rgba(29,107,255,.4);stroke-width:2;stroke-dasharray:4 7;vector-effect:non-scaling-stroke;animation:flow 1.4s linear infinite}
-@keyframes flow{to{stroke-dashoffset:-22}}
-.node{position:absolute;transform:translate(-50%,-50%);border:0;cursor:pointer;display:grid;place-items:center;text-align:center;font:800 .95rem var(--sans);color:var(--ink);
-  width:92px;height:92px;border-radius:50%;background:linear-gradient(145deg,rgba(255,255,255,.95),rgba(214,232,255,.7));border:1px solid #fff;box-shadow:0 16px 36px -12px rgba(29,107,255,.6),inset 0 1px 0 #fff;transition:.35s var(--ease)}
-.node small{display:block;font:600 .58rem var(--mono);color:var(--dim);letter-spacing:.5px}
-.node:hover,.node.on{transform:translate(-50%,-50%) scale(1.14);background:var(--grad);color:#fff;box-shadow:0 0 0 8px rgba(56,189,248,.2),0 22px 44px -10px rgba(29,107,255,.8)}
-.node:hover small,.node.on small{color:#e3f0ff}
-.node.core{width:128px;height:128px;font-size:1.15rem;background:var(--grad);color:#fff;cursor:default;animation:corep 3s ease-in-out infinite}
-.node.core:hover{transform:translate(-50%,-50%)}
-@keyframes corep{50%{box-shadow:0 0 0 18px rgba(56,189,248,.18),0 22px 50px -10px rgba(29,107,255,.9)}}
-.adetail{max-width:620px;margin:1rem auto 0;padding:1.2rem 1.5rem;text-align:center}
-.adetail b{color:var(--blue)}
-
 /* ---------- calendar ---------- */
 .cal{display:grid;grid-template-columns:1.1fr .9fr;gap:1.1rem}
 .cal-h{display:flex;align-items:center;justify-content:space-between;margin-bottom:1rem}
@@ -276,18 +260,9 @@ footer strong{color:var(--ink)}
   .links{display:none}.hero .wrap{grid-template-columns:1fr}.stage{height:480px;margin-top:1rem}
   .bento{grid-template-columns:1fr}.bento .s2{grid-column:auto}.cal,.contact{grid-template-columns:1fr}
   section{padding:4.5rem 0}.hero{padding-top:8rem}.stats{grid-template-columns:repeat(2,1fr)}
-  .orch{height:400px}.node{width:76px;height:76px;font-size:.82rem}.node.core{width:104px;height:104px}
 }
 @media(hover:none){.glow{display:none}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}html{scroll-behavior:auto}}
-
-.agents-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:1rem;margin-top:1.5rem}
-.agent-card{text-align:center;padding:1.5rem 1rem;border-radius:18px;transition:transform .3s,box-shadow .3s;cursor:pointer}
-.agent-card:hover{transform:translateY(-6px) scale(1.03);box-shadow:0 20px 40px -12px rgba(29,107,255,.4),0 0 30px rgba(29,107,255,.2)}
-.agent-icon{font-size:2.2rem;margin-bottom:.6rem;filter:drop-shadow(0 4px 8px rgba(29,107,255,.3))}
-.agent-card h3{font:800 1.1rem var(--sans);color:var(--ink);margin-bottom:.3rem;letter-spacing:1px}
-.agent-card p{font:.85rem var(--sans);color:var(--muted)}
-
 
 /* Misión, Visión, Valores - títulos centrados y alineación perfecta */
 #mision .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.2rem;align-items:stretch}
@@ -330,7 +305,6 @@ footer strong{color:var(--ink)}
   <a class="logo" href="#inicio"><span class="mk">JC</span></a>
   <div class="links">
     <a href="#stack" data-i18n="nav2">Tecnología</a>
-    <a href="#agentes" data-i18n="navAg">IA</a>
     <a href="#proyectos" data-i18n="nav3">Plataforma</a>
     <a href="#servicios" data-i18n="nav4">Servicios</a>
     <a href="#agenda" data-i18n="navCal">Agenda</a>
@@ -378,18 +352,6 @@ footer strong{color:var(--ink)}
   <div class="wrap"><div class="brands" id="brands"></div></div>
 </section>
 
-<section id="agentes"><div class="wrap">
-  <p class="tag reveal">agents</p>
-  <h2 class="h2 reveal" data-i18n="agT">División de Inteligencia Artificial</h2>
-  <p class="lead reveal" data-i18n="agP"></p>
-  <div class="agents-grid reveal">
-    <div class="agent-card glass hov"><div class="agent-icon">🎯</div><h3>STRAT</h3><p data-i18n="agD1">Estrategia</p></div>
-    <div class="agent-card glass hov"><div class="agent-icon">⚙️</div><h3>CTO</h3><p data-i18n="agD2">Tecnología</p></div>
-    <div class="agent-card glass hov"><div class="agent-icon">📢</div><h3>CMO</h3><p data-i18n="agD3">Marketing</p></div>
-    <div class="agent-card glass hov"><div class="agent-icon">💰</div><h3>CFO</h3><p data-i18n="agD4">Finanzas</p></div>
-    <div class="agent-card glass hov"><div class="agent-icon">🔧</div><h3>COO</h3><p data-i18n="agD5">Operaciones</p></div>
-  </div>
-</div></section>
 
 <section id="mision"><div class="wrap">
   <p class="tag reveal">mission</p>
@@ -534,7 +496,7 @@ footer strong{color:var(--ink)}
 const $=s=>document.querySelector(s),$$=s=>document.querySelectorAll(s);
 const REDUCED=matchMedia("(prefers-reduced-motion: reduce)").matches;
 const T={
-es:{bio:"José Castillo",nav2:"Tecnología",navAg:"IA",nav3:"Plataforma",nav4:"Servicios",navCal:"Agenda",navAi:"Asistente",nav5:"Contacto",heroCta2:"Ver plataforma",heroCal:"Agendar reunión",
+es:{bio:"José Castillo",nav2:"Tecnología",nav3:"Plataforma",nav4:"Servicios",navCal:"Agenda",navAi:"Asistente",nav5:"Contacto",heroCta2:"Ver plataforma",heroCal:"Agendar reunión",
 st1:"Fases de infraestructura",st2:"Redes integradas",st3:"Agentes IA",st4:"Costo de software",soon:"PRONTO",agT2:"Agentes de inteligencia artificial",
 roles:["Dirección tecnológica","Inteligencia artificial","Automatización empresarial","Infraestructura"],
 aboutLead:"Tecnología, estrategia y educación para empresas que quieren crecer.",
@@ -542,9 +504,9 @@ s1t:"Visión de liderazgo",s1p:"Parte de una convicción: la tecnología más av
 s2t:"Líneas estratégicas",s2i1:"Inteligencia artificial aplicada a la empresa",s2i2:"Automatización de procesos y operaciones",s2i3:"Educación tecnológica y noticias del sector",s2i4:"Infraestructura de nivel empresarial",
 qst:"Quién soy",qsp1:"José Enrique Castillo.",qsp2:"Su trayectoria combina logística y tecnología: como dueño y gerente de GlobalTrackExpress.com — envíos, mensajería, rutas corporativas, rastreo GPS y venta de equipos — lidera el desarrollo de una plataforma tecnológica abierta, transparente y sin secretos.",
 stackT:"Stack tecnológico",stackP:"Tecnologías de nivel empresarial. Selecciona cada una para visitar su sitio oficial.",
-agT:"División de Inteligencia Artificial",agP:"Inteligencia artificial aplicada a tu negocio: estrategia, tecnología, marketing, finanzas y operaciones trabajando para ti.",agD1:"Estrategia",agD2:"Tecnología",agD3:"Marketing",agD4:"Finanzas",agD5:"Operaciones",
-ag:{STRAT:["Estrategia","Define la estrategia y coordina al equipo de agentes: objetivos, prioridades y decisiones clave."],CTO:["Tecnología","Supervisa la infraestructura, el código y las integraciones: sistemas estables y seguros."],CMO:["Marketing","Planifica contenidos y comunicación, con aprobación previa: mensaje claro y constante."],CFO:["Finanzas","Controla los costos y los ingresos del proyecto: números claros, cero desperdicio."],COO:["Operaciones","Organiza los procesos y la ejecución diaria: todo en orden y a tiempo."]},
-agCore:"JC",
+
+
+
 mvT:"Misión · Visión · Valores",mst:"Misión",vst:"Visión",valt:"Valores",
 msp:"Llevar inteligencia artificial a las empresas con agentes autónomos; educar con noticias y conocimiento; y construir una comunidad global alrededor de la tecnología.",
 msli1:"Educación — noticias y conocimiento para empresas y profesionales.",msli2:"IA empresarial — agentes autónomos; el servicio profesional se factura.",msli3:"Comunidad global — transparencia total: conocimiento y procesos.",
@@ -566,7 +528,7 @@ quick:["Servicios","Agendar","Proyectos","Tecnología","Donar","Contacto"],greet
 fb:"Con gusto le ayudo con eso. Complete el formulario de contacto o escríbanos por WhatsApp y le responderemos personalmente.",
 bot:{serv:"José Castillo ofrece inteligencia artificial para empresas, automatización, infraestructura y soporte técnico. Los servicios profesionales se facturan.",cal:"Puede reservar un horario en la agenda y confirmarlo por WhatsApp.",price:"Las tarifas se comparten por WhatsApp, según cada proyecto.",don:"Gracias por su apoyo. En la sección de donativos encontrará las opciones disponibles.",hi:"Bienvenido. ¿Desea conocer los servicios, agendar una reunión o contactarnos por WhatsApp?",thx:"Con gusto. ¿Algo más en lo que pueda ayudarle?",os:"Todo nuestro software es propiedad de José Castillo.",who:"José Castillo.",course:"José Castillo impulsa la educación tecnológica. Escríbanos por WhatsApp para más información.",stack:"El stack incluye Python, Docker, Linux, n8n, Ollama, PostgreSQL, Grafana y más. Ver la sección Tecnología.",contact:"Puede escribirnos por WhatsApp, usar el formulario de contacto o seguirnos en YouTube e Instagram.",bye:"¡Hasta luego! Fue un placer ayudarle. Estoy aquí cuando lo necesite.",help:"Puedo orientarle sobre: servicios, agenda, precios, proyectos, tecnología, donativos, redes sociales y contacto. ¿Qué le interesa?",hours:"La agenda muestra disponibilidad de lunes a viernes, de 09:00 a 16:00 (UTC−5). Elija día y hora, y confírmelo por WhatsApp.",social:"Encuéntrenos en YouTube (@TV-GTE) e Instagram (@josecastilloceo).",proj:"Proyectos: infraestructura en contenedores, gateway multi-modelo de IA, automatización de redes sociales, orquestación de agentes, drones y ciudad inteligente.",mission:"Misión: llevar IA a las empresas, educar con noticias y conocimiento, y construir una comunidad global con transparencia.",sec:"Enfoque defensivo: monitoreo, detección y fortalecimiento continuo de la seguridad.",crypto:"Aceptamos Bitcoin (BTC), Ethereum (ETH) y USDT. Las direcciones oficiales se publicarán próximamente.",lang:"Puede cambiar entre español e inglés con los botones ES / EN en la parte superior.",loc:"Trabajamos en línea con alcance global. Para reuniones, reserve en la agenda y confirme por WhatsApp."},
 acts:{cal:["Abrir agenda","#agenda"],contact:["Ir a contacto","#contacto"],don:["Ver donativos","#donativos"],serv:["Ver servicios","#servicios"],price:["WhatsApp","https://wa.me/50763469431"],hours:["Abrir agenda","#agenda"],proj:["Ver proyectos","#proyectos"],mission:["Ver misión","#mision"],sec:["Ver seguridad","#arsenal"],social:["Ver redes","#contacto"],crypto:["Ver donativos","#donativos"],loc:["Ir a contacto","#contacto"]}},
-en:{bio:"José Castillo",nav2:"Technology",navAg:"AI",nav3:"Platform",nav4:"Services",navCal:"Schedule",navAi:"Assistant",nav5:"Contact",heroCta2:"View platform",heroCal:"Book a meeting",
+en:{bio:"José Castillo",nav2:"Technology",nav3:"Platform",nav4:"Services",navCal:"Schedule",navAi:"Assistant",nav5:"Contact",heroCta2:"View platform",heroCal:"Book a meeting",
 st1:"Infrastructure phases",st2:"Integrated networks",st3:"AI agents",st4:"Software cost",soon:"SOON",agT2:"Artificial intelligence agents",
 roles:["Technology leadership","Artificial intelligence","Business automation","Infrastructure"],
 aboutLead:"Technology, strategy, and education for companies ready to grow.",
@@ -574,9 +536,9 @@ s1t:"Leadership vision",s1p:"Built on a conviction: the most advanced technology
 s2t:"Strategic lines",s2i1:"Artificial intelligence applied to business",s2i2:"Process and operations automation",s2i3:"Technology education and industry news",s2i4:"Enterprise-grade infrastructure",
 qst:"About me",qsp1:"José Enrique Castillo.",qsp2:"His background combines logistics and technology: as owner and manager of GlobalTrackExpress.com — shipping, courier services, corporate routes, GPS tracking, and equipment — he leads the development of an open, transparent technology platform with no secrets.",
 stackT:"Technology stack",stackP:"Enterprise-grade technologies. Select each one to visit its official site.",
-agT:"Artificial Intelligence Division",agP:"Five specialized agents: strategy, technology, marketing, finance, and operations.",
-ag:{STRAT:["Strategy","Defines strategy and coordinates the agent team: goals, priorities, and key decisions."],CTO:["Technology","Oversees infrastructure, code, and integrations: stable and secure systems."],CMO:["Marketing","Plans content and communications, with prior approval: clear and consistent messaging."],CFO:["Finance","Controls project costs and revenue: clear numbers, zero waste."],COO:["Operations","Organizes processes and daily execution: everything in order and on time."]},
-agCore:"JC",
+
+
+
 mvT:"Mission · Vision · Values",mst:"Mission",vst:"Vision",valt:"Values",
 msp:"Bring artificial intelligence to companies through autonomous agents; educate with news and knowledge; and build a global community around technology.",
 msli1:"Education — news and knowledge for companies and professionals.",msli2:"Business AI — autonomous agents; professional services are billed.",msli3:"Global community — total transparency: knowledge and processes.",
@@ -607,7 +569,7 @@ function setLang(l){
   $$("[data-i18n]").forEach(e=>{const v=T[l][e.dataset.i18n];if(typeof v==="string")e.textContent=v});
   $("#ct").placeholder=T[l].chatph;
   document.title="José Castillo";
-  renderQuick();roleStart();renderCal();renderAgents();buildBots();
+  renderQuick();roleStart();renderCal();buildBots();
 }
 
 /* role typewriter */
@@ -628,19 +590,6 @@ const rowH=a=>a.map(([n,s,h,u])=>`<a class="tech" href="${u}" target="_blank" re
 $("#marq").innerHTML=`<div class="mt">${rowH(techs)}${rowH(techs)}</div><div class="mt rev">${rowH([...techs].reverse())}${rowH([...techs].reverse())}</div>`;
 $("#brands").innerHTML=techs.slice(0,12).map(([n,s,h,u])=>`<a class="brand" href="${u}" target="_blank" rel="noopener" title="${n}">${lg(s,h,n)}<span>${n}</span></a>`).join("");
 
-/* agents orchestra */
-let curAg="STRAT",agAuto=null,agTouch=false;
-function renderAgents(){
-  const o=$("#orch"),ids=["STRAT","CTO","CMO","CFO","COO"],ag=T[L].ag;let lines="",nodes="";
-  ids.forEach((id,k)=>{const a=(-90+k*72)*Math.PI/180,x=50+Math.cos(a)*36,y=50+Math.sin(a)*37;
-    lines+=`<line x1="50" y1="50" x2="${x}" y2="${y}" style="animation-delay:${-k*.3}s"/>`;
-    nodes+=`<button class="node${id===curAg?" on":""}" data-id="${id}" style="left:${x}%;top:${y}%"><span>${id}<small>${ag[id][0]}</small></span></button>`});
-  o.innerHTML=`<svg viewBox="0 0 100 100" preserveAspectRatio="none">${lines}</svg><div class="node core" style="left:50%;top:50%">${T[L].agCore}</div>${nodes}`;
-  o.querySelectorAll(".node[data-id]").forEach(n=>{n.onclick=n.onmouseenter=()=>{agTouch=true;clearInterval(agAuto);curAg=n.dataset.id;o.querySelectorAll(".node[data-id]").forEach(x=>x.classList.toggle("on",x===n));showAg()}});
-  showAg();
-  if(!REDUCED&&!agTouch){clearInterval(agAuto);agAuto=setInterval(()=>{const _ids=["STRAT","CTO","CMO","CFO","COO"];curAg=_ids[(_ids.indexOf(curAg)+1)%_ids.length];const _o=$("#orch");if(_o){_o.querySelectorAll(".node[data-id]").forEach(x=>x.classList.toggle("on",x.dataset.id===curAg))}showAg()},4500)}
-}
-function showAg(){const a=T[L].ag[curAg];$("#adet").innerHTML=`<b>${curAg} · ${a[0]}</b><br>${a[1]}`}
 
 /* calendar */
 const SLOTS=["09:00","10:00","11:00","14:00","15:00","16:00"];
