@@ -8,7 +8,7 @@
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'><stop stop-color='%2338bdf8'/><stop offset='1' stop-color='%231d6bff'/></linearGradient></defs><rect width='64' height='64' rx='16' fill='url(%23g)'/><text x='32' y='43' font-size='28' text-anchor='middle' fill='white' font-family='sans-serif' font-weight='800'>JC</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap"></noscript>
 <script>
 /* logo fallback: if a brand logo fails to load, show its initial instead */
 function fb(img,t){var s=document.createElement('span');s.className='lg';s.textContent=t;img.replaceWith(s)}
@@ -302,16 +302,15 @@ footer strong{color:var(--ink)}
   <symbol id="i-bolt" viewBox="0 0 24 24"><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></symbol>
   <symbol id="i-server" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="7" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><rect x="3" y="14" width="18" height="7" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M7 6.5h.01M7 17.5h.01" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></symbol>
   <symbol id="i-life" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="3.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M5.6 5.6l3.9 3.9M14.5 14.5l3.9 3.9M18.4 5.6l-3.9 3.9M9.5 14.5l-3.9 3.9" stroke="currentColor" stroke-width="2"/></symbol>
-  <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 2 4 5v6c0 5 3.4 9.3 8 11 4.6-1.7 8-6 8-11V5l-8-3z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></symbol>
   <symbol id="i-down" viewBox="0 0 24 24"><path d="M12 3v12M7 10l5 5 5-5M4 21h16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
 </svg>
 
 <nav class="nav glass" id="nav">
   <a class="logo" href="#inicio"><span class="mk">JC</span>Castillo</a>
   <div class="links">
-    <a href="#stack" data-i18n="nav2">Stack</a>
-    <a href="#agentes" data-i18n="navAg">Agentes</a>
-    <a href="#proyectos" data-i18n="nav3">Proyectos</a>
+    <a href="#stack" data-i18n="nav2">Tecnología</a>
+    <a href="#agentes" data-i18n="navAg">IA</a>
+    <a href="#proyectos" data-i18n="nav3">Plataforma</a>
     <a href="#servicios" data-i18n="nav4">Servicios</a>
     <a href="#agenda" data-i18n="navCal">Agenda</a>
     <a href="#asistente" data-i18n="navAi">Asistente</a>
@@ -333,18 +332,12 @@ footer strong{color:var(--ink)}
     <div class="ctas reveal">
       <a class="btn wa" href="https://wa.me/50763469431?text=Hola%20Jos%C3%A9%2C%20quiero%20crecer" target="_blank" rel="noopener"><svg class="i f"><use href="#i-wa"/></svg><span data-i18n="s3cta">WhatsApp</span></a>
       <a class="btn" href="#agenda"><svg class="i"><use href="#i-cal"/></svg><span data-i18n="heroCal">Agendar reunión</span></a>
-      <a class="btn ghost" href="#proyectos"><span data-i18n="heroCta2">Ver proyectos</span><svg class="i"><use href="#i-arrow"/></svg></a>
-    </div>
-    <div class="stats reveal">
-      <div class="stat glass"><b data-count="6">0</b><span data-i18n="st1">Fases infra</span></div>
-      <div class="stat glass"><b data-count="6">0</b><span data-i18n="st2">Redes</span></div>
-      <div class="stat glass"><b data-count="5">0</b><span data-i18n="st3">Agentes</span></div>
-      <div class="stat glass"><b>$<span data-count="0">0</span></b><span data-i18n="st4">Software</span></div>
+      <a class="btn ghost" href="#proyectos"><span data-i18n="heroCta2">Ver plataforma</span><svg class="i"><use href="#i-arrow"/></svg></a>
     </div>
   </div>
   <div class="stage" id="vis">
     <div class="fc c1 glass"><h4><i class="dot"></i>jose@dev</h4><div class="tm" id="tm"></div></div>
-    <div class="fc c2 glass"><h4><svg class="i"><use href="#i-spark"/></svg><span data-i18n="agT2">Agentes IA</span></h4><div class="chips"><span class="chip">STRAT</span><span class="chip">CTO</span><span class="chip">CMO</span><span class="chip">CFO</span><span class="chip">COO</span></div></div>
+    <div class="fc c2 glass"><h4><svg class="i"><use href="#i-spark"/></svg><span data-i18n="agT2">Agentes de inteligencia artificial</span></h4><div class="chips"><span class="chip">STRAT</span><span class="chip">CTO</span><span class="chip">CMO</span><span class="chip">CFO</span><span class="chip">COO</span></div></div>
     <a class="fc c3 glass" href="#agenda"><h4><svg class="i"><use href="#i-cal"/></svg><span data-i18n="navCal">Agenda</span></h4><div class="week" id="week"></div><span class="btn sm" style="width:100%" data-i18n="heroCal">Agendar reunión</span></a>
   </div>
 </div></header>
@@ -362,7 +355,7 @@ footer strong{color:var(--ink)}
 
 <section id="stack"><div class="wrap">
   <p class="tag reveal">tech-stack</p>
-  <h2 class="h2 reveal" data-i18n="stackT">Tech Stack</h2>
+  <h2 class="h2 reveal" data-i18n="stackT">Stack tecnológico</h2>
   <p class="lead reveal" data-i18n="stackP"></p>
 </div>
   <div class="marq reveal" id="marq"></div>
@@ -371,7 +364,7 @@ footer strong{color:var(--ink)}
 
 <section id="agentes"><div class="wrap">
   <p class="tag reveal">agents</p>
-  <h2 class="h2 reveal" data-i18n="agT">Orquestador de agentes</h2>
+  <h2 class="h2 reveal" data-i18n="agT">División de Inteligencia Artificial</h2>
   <p class="lead reveal" data-i18n="agP"></p>
   <div class="orch reveal" id="orch"></div>
   <div class="glass adetail reveal" id="adet"></div>
@@ -469,12 +462,11 @@ footer strong{color:var(--ink)}
   <p class="lead reveal" data-i18n="s5p"></p>
   <!-- José: cuando tengas tus enlaces, cambia href="#", quita aria-disabled="true" y el <small> -->
   <div class="dbtns reveal">
-    <!-- José: reemplaza TU_USUARIO por tu usuario real de GitHub -->
-    <a class="dbtn" href="https://github.com/sponsors/TU_USUARIO" target="_blank" rel="noopener"><svg class="i f"><use href="#i-gh"/></svg><span>GitHub Sponsors</span></a>
+    <!-- GitHub Sponsors: activar cuando exista la cuenta -->
+    <a class="dbtn" href="#" aria-disabled="true"><svg class="i f"><use href="#i-gh"/></svg><span>GitHub Sponsors</span><small data-i18n="soon">PRONTO</small></a>
     <a class="dbtn" href="#" aria-disabled="true"><svg class="i"><use href="#i-coffee"/></svg><span>Ko-fi</span><small data-i18n="soon">PRONTO</small></a>
     <a class="dbtn" href="#" aria-disabled="true"><svg class="i"><use href="#i-heart"/></svg><span>Patreon</span><small data-i18n="soon">PRONTO</small></a>
     <a class="dbtn" href="#" aria-disabled="true"><svg class="i"><use href="#i-card"/></svg><span>PayPal</span><small data-i18n="soon">PRONTO</small></a>
-    <!-- José: reemplaza TU_USUARIO por tu usuario real de Buy Me a Coffee -->
     <a class="dbtn" href="https://www.buymeacoffee.com/globaltrackexpress" target="_blank" rel="noopener"><svg class="i"><use href="#i-coffee"/></svg><span>Buy Me a Coffee</span></a>
   </div>
   <p class="sub reveal" data-i18n="s5ct">Cripto</p>
@@ -493,7 +485,7 @@ footer strong{color:var(--ink)}
   <div class="contact">
     <div class="reveal">
       <p class="lead" style="margin-bottom:1.4rem" data-i18n="s3p"></p>
-      <a class="sl" href="https://wa.me/50763469431?text=Hola%20Jos%C3%A9%2C%20quiero%20crecer" target="_blank" rel="noopener"><svg class="i f" style="color:#16a34a"><use href="#i-wa"/></svg>WhatsApp<small>+507 6465-6319</small></a>
+      <a class="sl" href="https://wa.me/50763469431?text=Hola%20Jos%C3%A9%2C%20quiero%20crecer" target="_blank" rel="noopener"><svg class="i f" style="color:#16a34a"><use href="#i-wa"/></svg>WhatsApp<small>+507 6346-9431</small></a>
       <a class="sl" href="https://www.youtube.com/@TV-GTE" target="_blank" rel="noopener"><svg class="i f" style="color:#ff0000"><use href="#i-yt"/></svg>YouTube<small>@TV-GTE</small></a>
       <a class="sl" href="https://www.instagram.com/josecastilloceo" target="_blank" rel="noopener"><svg class="i" style="color:#e4405f"><use href="#i-ig"/></svg>Instagram<small>@josecastilloceo</small></a>
       <a class="sl" href="https://github.com/" target="_blank" rel="noopener"><svg class="i f" style="color:#181717"><use href="#i-gh"/></svg>GitHub<small>código</small></a>
@@ -512,7 +504,7 @@ footer strong{color:var(--ink)}
 </div></section>
 </main>
 
-<footer><p>© 2026 <strong>José Castillo</strong> — <span data-i18n="lic">© 2026 José Castillo</span></p><p style="margin-top:.5rem">Hecho por José Castillo</p></footer>
+<footer><p>© 2026 <strong>José Castillo</strong></p><p style="margin-top:.5rem">Hecho por José Castillo</p></footer>
 
 <a class="fab wa" href="https://wa.me/50763469431?text=Hola%20Jos%C3%A9%2C%20quiero%20crecer" target="_blank" rel="noopener" aria-label="WhatsApp"><svg class="i f" style="width:28px;height:28px"><use href="#i-wa"/></svg></a>
 <a class="fab ch" href="#asistente" id="fabai" aria-label="Assistant"><svg class="i" style="width:24px;height:24px"><use href="#i-spark"/></svg></a>
@@ -527,7 +519,7 @@ roles:["Dirección tecnológica","Inteligencia artificial","Automatización empr
 aboutLead:"Tecnología, estrategia y educación para empresas que quieren crecer.",
 s1t:"Visión de liderazgo",s1p:"Parte de una convicción: la tecnología más avanzada debe estar al alcance de todos. José Castillo construye sistemas de inteligencia artificial, automatización e infraestructura — de adentro hacia afuera: desde los valores hacia el mundo.",
 s2t:"Líneas estratégicas",s2i1:"Inteligencia artificial aplicada a la empresa",s2i2:"Automatización de procesos y operaciones",s2i3:"Educación tecnológica y noticias del sector",s2i4:"Infraestructura de nivel empresarial",
-qst:"José Castillo",qsp1:"José Enrique Castillo.",qsp2:"Su trayectoria combina logística y tecnología: como dueño y gerente de GlobalTrackExpress.com — envíos, mensajería, rutas corporativas, rastreo GPS y venta de equipos — lidera el desarrollo de una plataforma tecnológica abierta, transparente y sin secretos.",
+qst:"Quién soy",qsp1:"José Enrique Castillo.",qsp2:"Su trayectoria combina logística y tecnología: como dueño y gerente de GlobalTrackExpress.com — envíos, mensajería, rutas corporativas, rastreo GPS y venta de equipos — lidera el desarrollo de una plataforma tecnológica abierta, transparente y sin secretos.",
 stackT:"Stack tecnológico",stackP:"Tecnologías de nivel empresarial. Selecciona cada una para visitar su sitio oficial.",
 agT:"División de Inteligencia Artificial",agP:"Cinco agentes especializados: estrategia, tecnología, marketing, finanzas y operaciones.",
 ag:{STRAT:["Estrategia","Define la estrategia y coordina al equipo de agentes: objetivos, prioridades y decisiones clave."],CTO:["Tecnología","Supervisa la infraestructura, el código y las integraciones: sistemas estables y seguros."],CMO:["Marketing","Planifica contenidos y comunicación, con aprobación previa: mensaje claro y constante."],CFO:["Finanzas","Controla los costos y los ingresos del proyecto: números claros, cero desperdicio."],COO:["Operaciones","Organiza los procesos y la ejecución diaria: todo en orden y a tiempo."]},
@@ -551,7 +543,7 @@ lic:"© 2026 José Castillo",
 term:[["whoami","jose-castillo"],["jose --status","plataforma operativa · 6 fases"],["software --costo","© 2026 José Castillo"]],
 quick:["Servicios","Agendar","Proyectos","Tecnología","Donar","Contacto"],greet:"Bienvenido. Soy el asistente virtual de José Castillo. Puedo ayudarle con servicios, agenda, precios, proyectos, tecnología, donativos y contacto. ¿En qué le ayudo?",
 fb:"Con gusto le ayudo con eso. Complete el formulario de contacto o escríbanos por WhatsApp y le responderemos personalmente.",
-bot:{serv:"José Castillo ofrece inteligencia artificial para empresas, automatización, infraestructura y soporte técnico. Los servicios profesionales se facturan.",cal:"Puede reservar un horario en la agenda y confirmarlo por WhatsApp.",price:"Las tarifas se comparten por WhatsApp, según cada proyecto.",don:"Gracias por su apoyo. En la sección de donativos encontrará las opciones disponibles.",hi:"Bienvenido. ¿Desea conocer los servicios, agendar una reunión o contactarnos por WhatsApp?",thx:"Con gusto. ¿Algo más en lo que pueda ayudarle?",os:"Todo nuestro software es propiedad de José Castillo.",who:"José Castillo.",course:"José Castillo impulsa la educación tecnológica. Escríbanos por WhatsApp para más información.",stack:"El stack incluye Python, Docker, Linux, n8n, Ollama, PostgreSQL, Grafana y más. Ver la sección Tecnología.",contact:"Puede escribirnos por WhatsApp, usar el formulario de contacto o seguirnos en YouTube e Instagram.",bye:"¡Hasta luego! Fue un placer ayudarle. Estoy aquí cuando lo necesite.",help:"Puedo orientarle sobre: servicios, agenda, precios, proyectos, tecnología, donativos, redes sociales y contacto. ¿Qué le interesa?",hours:"La agenda muestra disponibilidad de lunes a viernes, de 09:00 a 16:00 (UTC−5). Elija día y hora, y confírmelo por WhatsApp.",social:"Encuéntrenos en YouTube (@TV-GTE) e Instagram (@josecastilloceo).",proj:"Proyectos: infraestructura en contenedores, gateway multi-modelo de IA, automatización de redes sociales, orquestación de agentes, drones y ciudad inteligente.",mission:"Misión: llevar IA a las empresas, educar con noticias y conocimiento, y construir una comunidad global con transparencia.",sec:"Enfoque defensivo: monitoreo, detección y fortalecimiento continuo de la seguridad.",crypto:"Aceptamos Bitcoin (BTC), Ethereum (ETH) y USDT. Las direcciones oficiales están en la sección de donativos.",lang:"Puede cambiar entre español e inglés con los botones ES / EN en la parte superior.",loc:"Trabajamos en línea con alcance global. Para reuniones, reserve en la agenda y confirme por WhatsApp."},
+bot:{serv:"José Castillo ofrece inteligencia artificial para empresas, automatización, infraestructura y soporte técnico. Los servicios profesionales se facturan.",cal:"Puede reservar un horario en la agenda y confirmarlo por WhatsApp.",price:"Las tarifas se comparten por WhatsApp, según cada proyecto.",don:"Gracias por su apoyo. En la sección de donativos encontrará las opciones disponibles.",hi:"Bienvenido. ¿Desea conocer los servicios, agendar una reunión o contactarnos por WhatsApp?",thx:"Con gusto. ¿Algo más en lo que pueda ayudarle?",os:"Todo nuestro software es propiedad de José Castillo.",who:"José Castillo.",course:"José Castillo impulsa la educación tecnológica. Escríbanos por WhatsApp para más información.",stack:"El stack incluye Python, Docker, Linux, n8n, Ollama, PostgreSQL, Grafana y más. Ver la sección Tecnología.",contact:"Puede escribirnos por WhatsApp, usar el formulario de contacto o seguirnos en YouTube e Instagram.",bye:"¡Hasta luego! Fue un placer ayudarle. Estoy aquí cuando lo necesite.",help:"Puedo orientarle sobre: servicios, agenda, precios, proyectos, tecnología, donativos, redes sociales y contacto. ¿Qué le interesa?",hours:"La agenda muestra disponibilidad de lunes a viernes, de 09:00 a 16:00 (UTC−5). Elija día y hora, y confírmelo por WhatsApp.",social:"Encuéntrenos en YouTube (@TV-GTE) e Instagram (@josecastilloceo).",proj:"Proyectos: infraestructura en contenedores, gateway multi-modelo de IA, automatización de redes sociales, orquestación de agentes, drones y ciudad inteligente.",mission:"Misión: llevar IA a las empresas, educar con noticias y conocimiento, y construir una comunidad global con transparencia.",sec:"Enfoque defensivo: monitoreo, detección y fortalecimiento continuo de la seguridad.",crypto:"Aceptamos Bitcoin (BTC), Ethereum (ETH) y USDT. Las direcciones oficiales se publicarán próximamente.",lang:"Puede cambiar entre español e inglés con los botones ES / EN en la parte superior.",loc:"Trabajamos en línea con alcance global. Para reuniones, reserve en la agenda y confirme por WhatsApp."},
 acts:{cal:["Abrir agenda","#agenda"],contact:["Ir a contacto","#contacto"],don:["Ver donativos","#donativos"],serv:["Ver servicios","#servicios"],price:["WhatsApp","https://wa.me/50763469431"],hours:["Abrir agenda","#agenda"],proj:["Ver proyectos","#proyectos"],mission:["Ver misión","#mision"],sec:["Ver seguridad","#arsenal"],social:["Ver redes","#contacto"],crypto:["Ver donativos","#donativos"],loc:["Ir a contacto","#contacto"]}},
 en:{pill:"José Castillo",bio:"José Castillo",nav2:"Technology",navAg:"AI",nav3:"Platform",nav4:"Services",navCal:"Schedule",navAi:"Assistant",nav5:"Contact",heroCta2:"View platform",heroCal:"Book a meeting",
 st1:"Infrastructure phases",st2:"Integrated networks",st3:"AI agents",st4:"Software cost",soon:"SOON",agT2:"Artificial intelligence agents",
@@ -559,7 +551,7 @@ roles:["Technology leadership","Artificial intelligence","Business automation","
 aboutLead:"Technology, strategy, and education for companies ready to grow.",
 s1t:"Leadership vision",s1p:"Built on a conviction: the most advanced technology should be within everyone's reach. José Castillo builds artificial intelligence systems, automation, and infrastructure — inside out: from values to the world.",
 s2t:"Strategic lines",s2i1:"Artificial intelligence applied to business",s2i2:"Process and operations automation",s2i3:"Technology education and industry news",s2i4:"Enterprise-grade infrastructure",
-qst:"José Castillo",qsp1:"José Enrique Castillo.",qsp2:"His background combines logistics and technology: as owner and manager of GlobalTrackExpress.com — shipping, courier services, corporate routes, GPS tracking, and equipment — he leads the development of an open, transparent technology platform with no secrets.",
+qst:"About me",qsp1:"José Enrique Castillo.",qsp2:"His background combines logistics and technology: as owner and manager of GlobalTrackExpress.com — shipping, courier services, corporate routes, GPS tracking, and equipment — he leads the development of an open, transparent technology platform with no secrets.",
 stackT:"Technology stack",stackP:"Enterprise-grade technologies. Select each one to visit its official site.",
 agT:"Artificial Intelligence Division",agP:"Five specialized agents: strategy, technology, marketing, finance, and operations.",
 ag:{STRAT:["Strategy","Defines strategy and coordinates the agent team: goals, priorities, and key decisions."],CTO:["Technology","Oversees infrastructure, code, and integrations: stable and secure systems."],CMO:["Marketing","Plans content and communications, with prior approval: clear and consistent messaging."],CFO:["Finance","Controls project costs and revenue: clear numbers, zero waste."],COO:["Operations","Organizes processes and daily execution: everything in order and on time."]},
@@ -568,11 +560,11 @@ mvT:"Mission · Vision · Values",mst:"Mission",vst:"Vision",valt:"Values",
 msp:"Bring artificial intelligence to companies through autonomous agents; educate with news and knowledge; and build a global community around free software.",
 msli1:"Education — news and knowledge for companies and professionals.",msli2:"Business AI — autonomous agents with free software; professional services are billed.",msli3:"Global community — total transparency: knowledge, processes, and open code.",
 vsp:"To be the reference platform for applied artificial intelligence, automation, and infrastructure — led with transparency and excellence.",
-vsli1:"Global free software community.",vsli2:"AI serving companies, operating continuously.",vsli3:"Self-owned infrastructure at $0 in software licenses.",
+vsli1:"Global free software community.",vsli2:"AI serving companies, operating continuously.",vsli3:"Own infrastructure with $0 cost in software licenses.",
 vali1:"Transparency — open knowledge and processes.",vali2:"Integrity — verified data; figures only from official sources.",vali3:"Excellence — the highest standard in everything we do.",vali4:"Discipline — design, build, correct, and automate.",vali5:"Respect — commercial and professional communication, always.",vali6:"Authenticity — original content and real leadership.",
 projT:"Projects",projP:"Integrated projects and modules.",
-projD1:"Container infrastructure: 6 phases, from base to monitoring.",projD2:"Multi-model AI gateway with agents and RAG memory.",projD3:"Social media publishing automation, with prior approval.",projD4:"AI agent orchestration: STRAT, CTO, CMO, CFO, and COO.",projD5:"Drone engineering by scale, from concept to deployment.",projD6:"Smart city and building: IoT, FIWARE, and video surveillance.",
-svt:"Business services",svp:"The software is 100% free and. Professional services are billed.",svi1:"Artificial intelligence for business — autonomous agents.",svi2:"Automation — processes, operations, and content.",svi3:"Infrastructure — containers on Linux servers, continuous monitoring.",svi4:"Support — technical assistance, training, and guidance.",svn:"New services in preparation: to be officially announced at launch.",
+projD1:"Container infrastructure: 6 phases, from base to monitoring.",projD2:"Multi-model AI gateway with agents and RAG memory.",projD3:"Social media publishing automation, with prior approval.",projD4:"AI agent orchestration: STRAT, CTO, CMO, CFO, and COO.",projD5:"Scalable drone engineering, from concept to deployment.",projD6:"Smart city and building: IoT, FIWARE, and video surveillance.",
+svt:"Business services",svp:"The software is 100% free. Professional services are billed.",svi1:"Artificial intelligence for business — autonomous agents.",svi2:"Automation — processes, operations, and content.",svi3:"Infrastructure — containers on Linux servers, continuous monitoring.",svi4:"Support — technical assistance, training, and guidance.",svn:"New services in preparation: to be officially announced at launch.",
 calT:"Book a meeting",calP:"Select a day and time. The request is sent via WhatsApp for confirmation. You can also add it to your calendar.",calSlots:"Available times (UTC−5)",calWA:"Confirm via WhatsApp",calG:"Add to Google Calendar",calICS:"Download .ics",calNone:"Select a date and a time.",
 aiT:"Virtual assistant",aiP:"AI virtual assistant: guidance on services, scheduling, pricing, projects, technology, donations, and contact. For specific matters, José Castillo replies personally.",chatph:"Type your message…",
 s3p:"Looking to take your company to the next level with AI and automation? Let's talk.",s3cta:"WhatsApp",
@@ -583,7 +575,7 @@ lic:"© 2026 José Castillo",
 term:[["whoami","jose-castillo"],["jose --status","platform operational · 6 phases"],["software --cost","© 2026 José Castillo"]],
 quick:["Services","Book","Projects","Technology","Donate","Contact"],greet:"Welcome. I am José Castillo's virtual assistant. I can help with services, scheduling, pricing, projects, technology, donations, and contact. How may I help you?",
 fb:"Happy to help with that. Please use the contact form or message us on WhatsApp and we will reply personally.",
-bot:{serv:"José Castillo offers artificial intelligence for business, automation, infrastructure, and technical support. Professional services are billed.",cal:"You can book a time in the schedule and confirm it via WhatsApp.",price:"Rates are shared via WhatsApp, depending on each project.",don:"Thank you for your support. You will find the available options in the donations section.",hi:"Welcome. Would you like to see the services, book a meeting, or contact us on WhatsApp?",thx:"My pleasure. Anything else I can help you with?",os:"All of our software is property of José Castillo.",who:"José Castillo.",course:"José Castillo drives technology education. Message us on WhatsApp for more information.",stack:"The stack includes Python, Docker, Linux, n8n, Ollama, PostgreSQL, Grafana, and more. See the Technology section.",contact:"You can message us on WhatsApp, use the contact form, or follow us on YouTube and Instagram.",bye:"Goodbye! It was a pleasure helping you. I'm here whenever you need me.",help:"I can guide you on: services, scheduling, pricing, projects, technology, donations, social media, and contact. What interests you?",hours:"The schedule shows availability Monday to Friday, 09:00 to 16:00 (UTC−5). Pick a day and time, then confirm via WhatsApp.",social:"Find us on YouTube (@TV-GTE) and Instagram (@josecastilloceo).",proj:"Projects: container infrastructure, multi-model AI gateway, social media automation, agent orchestration, drones, and smart city.",mission:"Mission: bring AI to companies, educate with news and knowledge, and build a global community with transparency.",sec:"Defensive approach: continuous monitoring, detection, and security hardening.",crypto:"We accept Bitcoin (BTC), Ethereum (ETH), and USDT. Official addresses are in the donations section.",lang:"You can switch between Spanish and English with the ES / EN buttons at the top.",loc:"We work online with global reach. To meet, book in the schedule and confirm via WhatsApp."},
+bot:{serv:"José Castillo offers artificial intelligence for business, automation, infrastructure, and technical support. Professional services are billed.",cal:"You can book a time in the schedule and confirm it via WhatsApp.",price:"Rates are shared via WhatsApp, depending on each project.",don:"Thank you for your support. You will find the available options in the donations section.",hi:"Welcome. Would you like to see the services, book a meeting, or contact us on WhatsApp?",thx:"My pleasure. Anything else I can help you with?",os:"All of our software is property of José Castillo.",who:"José Castillo.",course:"José Castillo drives technology education. Message us on WhatsApp for more information.",stack:"The stack includes Python, Docker, Linux, n8n, Ollama, PostgreSQL, Grafana, and more. See the Technology section.",contact:"You can message us on WhatsApp, use the contact form, or follow us on YouTube and Instagram.",bye:"Goodbye! It was a pleasure helping you. I'm here whenever you need me.",help:"I can guide you on: services, scheduling, pricing, projects, technology, donations, social media, and contact. What interests you?",hours:"The schedule shows availability Monday to Friday, 09:00 to 16:00 (UTC−5). Pick a day and time, then confirm via WhatsApp.",social:"Find us on YouTube (@TV-GTE) and Instagram (@josecastilloceo).",proj:"Projects: container infrastructure, multi-model AI gateway, social media automation, agent orchestration, drones, and smart city.",mission:"Mission: bring AI to companies, educate with news and knowledge, and build a global community with transparency.",sec:"Defensive approach: continuous monitoring, detection, and security hardening.",crypto:"We accept Bitcoin (BTC), Ethereum (ETH), and USDT. Official addresses will be published soon.",lang:"You can switch between Spanish and English with the ES / EN buttons at the top.",loc:"We work online with global reach. To meet, book in the schedule and confirm via WhatsApp."},
 acts:{cal:["Open schedule","#agenda"],contact:["Go to contact","#contacto"],don:["See donations","#donativos"],serv:["See services","#servicios"],price:["WhatsApp","https://wa.me/50763469431"],hours:["Open schedule","#agenda"],proj:["See projects","#proyectos"],mission:["See mission","#mision"],sec:["See security","#arsenal"],social:["See social","#contacto"],crypto:["See donations","#donativos"],loc:["Go to contact","#contacto"]}}};
 let L=localStorage.getItem("jc-lang")||"es";
 
@@ -766,7 +758,7 @@ function frame(now){
   ctx.globalAlpha=1;
 }
 addEventListener("resize",()=>{clearTimeout(window._rz);window._rz=setTimeout(buildBots,250)});
-requestAnimationFrame(frame);
+if(REDUCED){cvs.style.display="none"}else{requestAnimationFrame(frame)}
 
 setLang(L);
 </script>
