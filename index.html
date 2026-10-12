@@ -64,7 +64,10 @@ svg.i.f{fill:currentColor;stroke:none}
 .nav{position:fixed;top:12px;left:50%;transform:translateX(-50%);z-index:1100;width:min(1080px,calc(100% - 24px));
   display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.5rem .55rem .5rem 1.1rem;border-radius:18px}
 .logo{font:800 1.05rem var(--sans);letter-spacing:-.02em;display:flex;align-items:center;gap:.55rem}
-.logo .mk{width:30px;height:30px;border-radius:9px;background:var(--grad);display:grid;place-items:center;color:#fff;font:800 .8rem var(--sans);box-shadow:0 6px 16px -4px rgba(29,107,255,.7),inset 0 1px 0 rgba(255,255,255,.6)}
+.logo .mk{width:32px;height:32px;border-radius:10px;background:linear-gradient(135deg,#00d4ff 0%,#1d6bff 50%,#7b2ff7 100%);background-size:200% 200%;display:grid;place-items:center;color:#fff;font:800 .82rem var(--sans);letter-spacing:.5px;box-shadow:0 0 20px rgba(29,107,255,.8),0 6px 16px -4px rgba(29,107,255,.7),inset 0 1px 0 rgba(255,255,255,.7),inset 0 -2px 4px rgba(0,0,0,.2);animation:mkNano 3s ease-in-out infinite;position:relative;overflow:hidden}
+.logo .mk::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,transparent,rgba(255,255,255,.6),transparent);transform:translateX(-100%);animation:mkShine 2.5s ease-in-out infinite}
+@keyframes mkNano{0%,100%{background-position:0% 50%;transform:scale(1)}50%{background-position:100% 50%;transform:scale(1.05)}}
+@keyframes mkShine{0%{transform:translateX(-100%)}60%,100%{transform:translateX(100%)}}
 .links{display:flex;gap:.1rem}
 .links a{font-size:.84rem;font-weight:600;color:var(--muted);padding:.45rem .8rem;border-radius:11px;transition:.2s}
 .links a:hover,.links a.on{color:var(--blue);background:rgba(29,107,255,.09)}
@@ -77,11 +80,11 @@ svg.i.f{fill:currentColor;stroke:none}
 .btn{--mx:50%;--my:50%;position:relative;display:inline-flex;align-items:center;justify-content:center;gap:.6rem;overflow:hidden;isolation:isolate;
   padding:.88rem 1.5rem;border-radius:14px;font:700 .92rem var(--sans);color:#fff;border:0;cursor:pointer;
   background:linear-gradient(180deg,#5fb4ff 0%,#1d6bff 100%);
-  box-shadow:inset 0 1px 0 rgba(255,255,255,.65),inset 0 -2px 0 rgba(0,40,140,.25),0 10px 26px -8px rgba(29,107,255,.75);
+  box-shadow:inset 0 2px 0 rgba(255,255,255,.8),inset 0 -3px 6px rgba(0,40,140,.35),0 0 24px rgba(29,107,255,.9),0 12px 32px -8px rgba(29,107,255,.8),0 0 60px rgba(80,160,255,.4);
   transition:transform .25s var(--ease),box-shadow .3s,filter .3s}
 .btn::before{content:"";position:absolute;inset:0;z-index:-1;opacity:0;transition:opacity .25s;background:radial-gradient(110px circle at var(--mx) var(--my),rgba(255,255,255,.55),transparent 65%)}
 .btn::after{content:"";position:absolute;top:0;left:-70%;width:45%;height:100%;z-index:-1;transform:skewX(-20deg);background:linear-gradient(90deg,transparent,rgba(255,255,255,.55),transparent)}
-.btn:hover{transform:translateY(-2px);box-shadow:inset 0 1px 0 rgba(255,255,255,.8),inset 0 -2px 0 rgba(0,40,140,.25),0 18px 40px -8px rgba(29,107,255,.85);filter:saturate(1.15)}
+.btn:hover{transform:translateY(-3px) scale(1.02);box-shadow:inset 0 2px 0 rgba(255,255,255,.9),inset 0 -3px 6px rgba(0,40,140,.3),0 0 32px rgba(29,107,255,1),0 20px 48px -8px rgba(29,107,255,.9),0 0 80px rgba(80,160,255,.5);filter:saturate(1.25) brightness(1.1)}
 .btn:hover::before{opacity:1}.btn:hover::after{animation:shine .9s var(--ease)}
 .btn:active{transform:translateY(0) scale(.97)}
 .btn[disabled]{opacity:.5;pointer-events:none;filter:grayscale(.5)}
@@ -523,14 +526,14 @@ agT:"División de Inteligencia Artificial",agP:"Cinco agentes especializados: es
 ag:{STRAT:["Estrategia","Define la estrategia y coordina al equipo de agentes: objetivos, prioridades y decisiones clave."],CTO:["Tecnología","Supervisa la infraestructura, el código y las integraciones: sistemas estables y seguros."],CMO:["Marketing","Planifica contenidos y comunicación, con aprobación previa: mensaje claro y constante."],CFO:["Finanzas","Controla los costos y los ingresos del proyecto: números claros, cero desperdicio."],COO:["Operaciones","Organiza los procesos y la ejecución diaria: todo en orden y a tiempo."]},
 agCore:"JC",
 mvT:"Misión · Visión · Valores",mst:"Misión",vst:"Visión",valt:"Valores",
-msp:"Llevar inteligencia artificial a las empresas con agentes autónomos; educar con noticias y conocimiento; y construir una comunidad global alrededor del software libre.",
-msli1:"Educación — noticias y conocimiento para empresas y profesionales.",msli2:"IA empresarial — agentes autónomos con software libre; el servicio profesional se factura.",msli3:"Comunidad global — transparencia total: conocimiento, procesos y código abierto.",
+msp:"Llevar inteligencia artificial a las empresas con agentes autónomos; educar con noticias y conocimiento; y construir una comunidad global alrededor de la tecnología.",
+msli1:"Educación — noticias y conocimiento para empresas y profesionales.",msli2:"IA empresarial — agentes autónomos; el servicio profesional se factura.",msli3:"Comunidad global — transparencia total: conocimiento y procesos.",
 vsp:"Ser la plataforma de referencia en inteligencia artificial aplicada, automatización e infraestructura — liderada con transparencia y excelencia.",
-vsli1:"Comunidad global de software libre.",vsli2:"IA al servicio de las empresas, operando de forma continua.",vsli3:"Infraestructura propia con costo $0 en licencias de software.",
+vsli1:"Comunidad global tecnológica.",vsli2:"IA al servicio de las empresas, operando de forma continua.",vsli3:"Infraestructura propia de nivel empresarial.",
 vali1:"Transparencia — conocimiento y procesos abiertos.",vali2:"Integridad — datos verificados; cifras solo con fuente oficial.",vali3:"Excelencia — el más alto estándar en todo lo que hacemos.",vali4:"Disciplina — diseñar, construir, corregir y automatizar.",vali5:"Respeto — comunicación comercial y profesional, siempre.",vali6:"Autenticidad — contenido original y liderazgo real.",
 projT:"Proyectos",projP:"Proyectos y módulos integrados.",
 projD1:"Infraestructura en contenedores: 6 fases, desde la base hasta el monitoreo.",projD2:"Gateway multi-modelo de IA con agentes y memoria RAG.",projD3:"Automatización de publicación en redes sociales, con aprobación previa.",projD4:"Orquestación de agentes: STRAT, CTO, CMO, CFO y COO.",projD5:"Ingeniería de drones por escala, del concepto al despliegue.",projD6:"Ciudad y edificio inteligente: IoT, FIWARE y videovigilancia.",
-svt:"Servicios empresariales",svp:"El software es 100% libre y gratuito. Los servicios profesionales se facturan.",svi1:"Inteligencia artificial para empresas — agentes autónomos.",svi2:"Automatización — procesos, operaciones y contenido.",svi3:"Infraestructura — contenedores en servidores Linux, monitoreo continuo.",svi4:"Soporte — asistencia técnica, capacitación y acompañamiento.",svn:"Nuevos servicios en preparación: se anunciarán oficialmente en su lanzamiento.",
+svt:"Servicios empresariales",svp:"Servicios profesionales para empresas. Contáctanos por WhatsApp.",svi1:"Inteligencia artificial para empresas — agentes autónomos.",svi2:"Automatización — procesos, operaciones y contenido.",svi3:"Infraestructura — contenedores en servidores Linux, monitoreo continuo.",svi4:"Soporte — asistencia técnica, capacitación y acompañamiento.",svn:"Nuevos servicios en preparación: se anunciarán oficialmente en su lanzamiento.",
 calT:"Agenda una reunión",calP:"Selecciona día y hora. La solicitud se envía por WhatsApp para su confirmación. También puedes añadirla a tu calendario.",calSlots:"Horarios disponibles (UTC−5)",calWA:"Confirmar por WhatsApp",calG:"Añadir a Google Calendar",calICS:"Descargar .ics",calNone:"Selecciona una fecha y un horario.",
 aiT:"Asistente virtual",aiP:"Asistente virtual con IA: le orienta sobre servicios, agenda, precios, proyectos, tecnología, donativos y contacto. Para temas específicos, José Castillo responde personalmente.",chatph:"Escribe tu mensaje…",
 s3p:"¿Buscas llevar tu empresa al siguiente nivel con IA y automatización? Conversemos.",s3cta:"WhatsApp",
@@ -555,14 +558,14 @@ agT:"Artificial Intelligence Division",agP:"Five specialized agents: strategy, t
 ag:{STRAT:["Strategy","Defines strategy and coordinates the agent team: goals, priorities, and key decisions."],CTO:["Technology","Oversees infrastructure, code, and integrations: stable and secure systems."],CMO:["Marketing","Plans content and communications, with prior approval: clear and consistent messaging."],CFO:["Finance","Controls project costs and revenue: clear numbers, zero waste."],COO:["Operations","Organizes processes and daily execution: everything in order and on time."]},
 agCore:"JC",
 mvT:"Mission · Vision · Values",mst:"Mission",vst:"Vision",valt:"Values",
-msp:"Bring artificial intelligence to companies through autonomous agents; educate with news and knowledge; and build a global community around free software.",
-msli1:"Education — news and knowledge for companies and professionals.",msli2:"Business AI — autonomous agents with free software; professional services are billed.",msli3:"Global community — total transparency: knowledge, processes, and open code.",
+msp:"Bring artificial intelligence to companies through autonomous agents; educate with news and knowledge; and build a global community around technology.",
+msli1:"Education — news and knowledge for companies and professionals.",msli2:"Business AI — autonomous agents; professional services are billed.",msli3:"Global community — total transparency: knowledge and processes.",
 vsp:"To be the reference platform for applied artificial intelligence, automation, and infrastructure — led with transparency and excellence.",
-vsli1:"Global free software community.",vsli2:"AI serving companies, operating continuously.",vsli3:"Own infrastructure with $0 cost in software licenses.",
+vsli1:"Global tech community.",vsli2:"AI serving companies, operating continuously.",vsli3:"Enterprise-grade own infrastructure.",
 vali1:"Transparency — open knowledge and processes.",vali2:"Integrity — verified data; figures only from official sources.",vali3:"Excellence — the highest standard in everything we do.",vali4:"Discipline — design, build, correct, and automate.",vali5:"Respect — commercial and professional communication, always.",vali6:"Authenticity — original content and real leadership.",
 projT:"Projects",projP:"Integrated projects and modules.",
 projD1:"Container infrastructure: 6 phases, from base to monitoring.",projD2:"Multi-model AI gateway with agents and RAG memory.",projD3:"Social media publishing automation, with prior approval.",projD4:"AI agent orchestration: STRAT, CTO, CMO, CFO, and COO.",projD5:"Scalable drone engineering, from concept to deployment.",projD6:"Smart city and building: IoT, FIWARE, and video surveillance.",
-svt:"Business services",svp:"The software is 100% free. Professional services are billed.",svi1:"Artificial intelligence for business — autonomous agents.",svi2:"Automation — processes, operations, and content.",svi3:"Infrastructure — containers on Linux servers, continuous monitoring.",svi4:"Support — technical assistance, training, and guidance.",svn:"New services in preparation: to be officially announced at launch.",
+svt:"Business services",svp:"Professional services for businesses. Contact us on WhatsApp.",svi1:"Artificial intelligence for business — autonomous agents.",svi2:"Automation — processes, operations, and content.",svi3:"Infrastructure — containers on Linux servers, continuous monitoring.",svi4:"Support — technical assistance, training, and guidance.",svn:"New services in preparation: to be officially announced at launch.",
 calT:"Book a meeting",calP:"Select a day and time. The request is sent via WhatsApp for confirmation. You can also add it to your calendar.",calSlots:"Available times (UTC−5)",calWA:"Confirm via WhatsApp",calG:"Add to Google Calendar",calICS:"Download .ics",calNone:"Select a date and a time.",
 aiT:"Virtual assistant",aiP:"AI virtual assistant: guidance on services, scheduling, pricing, projects, technology, donations, and contact. For specific matters, José Castillo replies personally.",chatph:"Type your message…",
 s3p:"Looking to take your company to the next level with AI and automation? Let's talk.",s3cta:"WhatsApp",
