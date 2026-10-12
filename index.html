@@ -64,7 +64,7 @@ svg.i.f{fill:currentColor;stroke:none}
 .nav{position:fixed;top:12px;left:50%;transform:translateX(-50%);z-index:1100;width:min(1080px,calc(100% - 24px));
   display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.5rem .55rem .5rem 1.1rem;border-radius:18px}
 .logo{font:800 1.05rem var(--sans);letter-spacing:-.02em;display:flex;align-items:center;gap:.55rem}
-.logo .mk{width:34px;height:34px;border-radius:10px;background:linear-gradient(135deg,#00d4ff,#1d6bff,#7b2ff7);background-size:200% 200%;display:grid;place-items:center;color:#fff;font:800 .85rem var(--sans);box-shadow:0 0 22px rgba(29,107,255,.9),inset 0 1px 0 rgba(255,255,255,.7);animation:mkGlow 2.5s ease-in-out infinite;position:relative;overflow:hidden}.logo .mk::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,transparent,rgba(255,255,255,.5),transparent);animation:mkSweep 2s linear infinite}@keyframes mkGlow{0%,100%{background-position:0% 50%;box-shadow:0 0 18px rgba(29,107,255,.7)}50%{background-position:100% 50%;box-shadow:0 0 32px rgba(29,107,255,1)}}@keyframes mkSweep{0%{transform:translateX(-100%)}100%{transform:translateX(100%)}}
+.logo .mk{font:800 1.4rem var(--sans);letter-spacing:1px;background:linear-gradient(180deg,#fff 0%,#7db9ff 50%,#1d6bff 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;filter:drop-shadow(0 2px 4px rgba(29,107,255,.6)) drop-shadow(0 0 12px rgba(29,107,255,.4));animation:mkFloat 3s ease-in-out infinite}@keyframes mkFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-2px)}}50%{background-position:100% 50%;box-shadow:0 0 32px rgba(29,107,255,1)}}@keyframes mkSweep{0%{transform:translateX(-100%)}100%{transform:translateX(100%)}}
 
 50%{background-position:100% 50%;transform:scale(1.05)}}
 60%,100%{transform:translateX(100%)}}
@@ -126,7 +126,7 @@ h1{font-size:clamp(2.7rem,6.6vw,5rem);font-weight:800;letter-spacing:-.045em;lin
 @keyframes bob{50%{transform:translateY(-14px)}}
 .fc h4{font:700 .72rem var(--mono);letter-spacing:1px;text-transform:uppercase;color:var(--blue);display:flex;align-items:center;gap:.5rem;margin-bottom:.6rem}
 .fc h4 .dot{width:8px;height:8px;border-radius:50%;background:var(--green);animation:pulse 2s infinite}
-.tm{font:.74rem/1.7 var(--mono);color:#00cc44;min-height:92px;text-shadow:0 0 8px rgba(0,204,68,.4)}.tm b{color:#00ff66;font-weight:600}
+
 .chips{display:flex;flex-wrap:wrap;gap:.4rem}
 .chip{font:700 .7rem var(--mono);padding:.3rem .65rem;border-radius:9px;background:rgba(29,107,255,.1);color:var(--blue);animation:glowchip 3s ease-in-out infinite}
 .chip:nth-child(2){animation-delay:.5s}.chip:nth-child(3){animation-delay:1s}.chip:nth-child(4){animation-delay:1.5s}.chip:nth-child(5){animation-delay:2s}
@@ -337,7 +337,6 @@ footer strong{color:var(--ink)}
     </div>
   </div>
   <div class="stage" id="vis">
-    <div class="fc c1 glass"><h4><i class="dot"></i>jose@dev</h4><div class="tm" id="tm"></div></div>
     <div class="fc c2 glass"><h4><svg class="i"><use href="#i-spark"/></svg><span data-i18n="agT2">Agentes de inteligencia artificial</span></h4><div class="chips"><span class="chip">STRAT</span><span class="chip">CTO</span><span class="chip">CMO</span><span class="chip">CFO</span><span class="chip">COO</span></div></div>
     <a class="fc c3 glass" href="#agenda"><h4><svg class="i"><use href="#i-cal"/></svg><span data-i18n="navCal">Agenda</span></h4><div class="week" id="week"></div><span class="btn sm" style="width:100%" data-i18n="heroCal">Agendar reunión</span></a>
   </div>
@@ -587,7 +586,7 @@ function setLang(l){
   $$("[data-i18n]").forEach(e=>{const v=T[l][e.dataset.i18n];if(typeof v==="string")e.textContent=v});
   $("#ct").placeholder=T[l].chatph;
   document.title="José Castillo";
-  renderQuick();termRun();roleStart();renderCal();renderAgents();renderWeek();buildBots();
+  renderQuick();roleStart();renderCal();renderAgents();renderWeek();buildBots();
 }
 
 /* role typewriter */
@@ -597,45 +596,9 @@ let rt;function roleStart(){clearTimeout(rt);const el=$("#tw"),r=T[L].roles;let 
     if(!del&&j===w.length){del=true;rt=setTimeout(tick,1600);return}
     if(del&&j===0){del=false;i++}j+=del?-1:1;rt=setTimeout(tick,del?30:60)})()}
 
-/* mini terminal */
-let tid=0;async function termRun(){const id=++tid,tb=$("#tm");tb.innerHTML="";const sl=ms=>new Promise(r=>setTimeout(r,ms));
-  for(const [c,o] of T[L].term){if(id!==tid)return;const row=document.createElement("div");row.innerHTML="<b>$ </b><span></span>";tb.appendChild(row);const sp=row.lastChild;
-    for(const ch of c){if(id!==tid)return;sp.textContent+=ch;if(!REDUCED)await sl(35)}
-    const out=document.createElement("div");out.textContent=o;tb.appendChild(out);if(!REDUCED)await sl(350)}}
-
 
 /* logo JC partículas */
-(function(){const cv=document.getElementById("mkp");if(!cv)return;const ctx=cv.getContext("2d"),W=64,H=64;
-// Puntos objetivo formando "JC"
-const off=document.createElement("canvas");off.width=W;off.height=H;const octx=off.getContext("2d");
-octx.font="800 30px sans-serif";octx.textAlign="center";octx.textBaseline="middle";octx.fillStyle="#fff";
-octx.fillText("JC",W/2,H/2+1);
-const data=octx.getImageData(0,0,W,H).data,targets=[];
-for(let y=0;y<H;y+=3)for(let x=0;x<W;x+=3){if(data[(y*W+x)*4+3]>128)targets.push({x,y});}
-const N=Math.min(targets.length,90),ps=[];
-for(let i=0;i<N;i++){const t=targets[i%targets.length];ps.push({x:Math.random()*W,y:Math.random()*H,tx:t.x,ty:t.y,vx:0,vy:0,mode:0});}
-let phase=0,timer=0;
-function tick(){
-  timer++;
-  if(timer>140){timer=0;phase=(phase+1)%2;} // alternar: formar / dispersar
-  ctx.clearRect(0,0,W,H);
-  for(const p of ps){
-    let gx,gy;
-    if(phase===0){gx=p.tx;gy=p.ty;} // converger a JC
-    else{gx=W/2+Math.cos(timer*.05+p.tx)*22;gy=H/2+Math.sin(timer*.05+p.ty)*22;} // orbitar
-    p.vx+=(gx-p.x)*.02;p.vy+=(gy-p.y)*.02;p.vx*=.9;p.vy*=.9;
-    p.x+=p.vx;p.y+=p.vy;
-    const d=Math.hypot(p.tx-p.x,p.ty-p.y);
-    ctx.fillStyle=`rgba(80,180,255,${Math.max(.3,1-d/40)})`;
-    ctx.beginPath();ctx.arc(p.x,p.y,1.6,0,7);ctx.fill();
-  }
-  // brillo central
-  const g=ctx.createRadialGradient(W/2,H/2,2,W/2,H/2,30);
-  g.addColorStop(0,"rgba(29,107,255,.25)");g.addColorStop(1,"transparent");
-  ctx.fillStyle=g;ctx.fillRect(0,0,W,H);
-  requestAnimationFrame(tick);
-}
-tick();})();
+
 
 /* week strip */
 function renderWeek(){const w=$("#week");w.innerHTML="";const n=new Date(),names=L==="es"?["L","M","X","J","V","S","D"]:["M","T","W","T","F","S","S"];
